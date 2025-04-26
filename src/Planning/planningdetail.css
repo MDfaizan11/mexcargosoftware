@@ -1,0 +1,237 @@
+.planning_upper_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f4f7fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.Select_service_sector,
+.plannng_details_add_price {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.Select_service_sector select {
+  padding: 1rem;
+  font-size: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+  appearance: none;
+}
+
+.plannng_details_add_price_input input {
+  padding: 1rem;
+  font-size: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.Planning_Add_master_button {
+  padding: 1rem;
+  background: linear-gradient(135deg, #6c63ff, #5a54d6);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.Planning_Add_master_button:hover {
+  background: linear-gradient(135deg, #5a54d6, #6c63ff);
+}
+
+@media (max-width: 480px) {
+  .Select_service_sector,
+  .plannng_details_add_price {
+    padding: 0.8rem;
+  }
+
+  .Select_service_sector select,
+  .plannng_details_add_price_input input,
+  .Planning_Add_master_button {
+    font-size: 0.95rem;
+    padding: 0.85rem;
+  }
+}
+
+/* ******** */
+.planningDetails-main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f7fa;
+  padding: 1rem;
+}
+
+.planningDetails-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.planningDetails-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.planningDetails-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.planningDetails-card:hover {
+  border-color: #3b82f6;
+  background-color: #f0f7ff;
+  transform: translateY(-2px);
+}
+
+.planningDetails-card input[type="radio"] {
+  margin-right: 1rem;
+  accent-color: #3b82f6;
+  폭: 1.25rem;
+  height: 1.25rem;
+}
+
+.planningDetails-card-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.planningDetails-card-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+.planningDetails-card-content p strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.planningDetails-submit-button {
+  align-self: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.planningDetails-submit-button:hover {
+  background-color: #2563eb;
+}
+
+.planningDetails-submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+@media (max-width: 640px) {
+  .planningDetails-container {
+    padding: 1rem;
+  }
+
+  .planningDetails-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem;
+  }
+
+  .planningDetails-card input[type="radio"] {
+    margin-bottom: 0.5rem;
+  }
+
+  .planningDetails-card-content {
+    gap: 0.5rem;
+  }
+
+  .planningDetails-card-content p {
+    font-size: 0.75rem;
+  }
+
+  .planningDetails-submit-button {
+    width: 100%;
+    padding: 0.75rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .planningDetails-container {
+    max-width: 90%;
+  }
+
+  .planningDetails-card-content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .planningDetails-card-content p {
+    font-size: 0.85rem;
+  }
+
+  .planningDetails-submit-button {
+    padding: 0.75rem 2rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .planningDetails-card-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .planningDetails-card-content p {
+    font-size: 0.875rem;
+  }
+}
+
+.planningDetails-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .planningDetails-heading {
+    font-size: 1.25rem;
+  }
+}
+/* ******** */

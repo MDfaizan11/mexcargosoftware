@@ -1,0 +1,1131 @@
+.teamTodo_search_section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 35px;
+}
+.teamTodo_search {
+  width: 400px;
+  height: 45px;
+  border-radius: 50px;
+}
+.teamTodo_Add_button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  background-color: #007bff;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .teamTodo_search_section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .teamTodo_search {
+    width: 85%;
+    margin-bottom: 10px;
+  }
+  .teamTodo_Add_button {
+    width: 150px;
+  }
+}
+
+.teamToDoTableContainer {
+  width: 95%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.teamToDoTableTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.teamToDoTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.teamToDoTable th,
+.teamToDoTable td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.teamToDoTable th {
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+}
+
+.teamToDoTable tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.teamToDoTable tbody tr:hover {
+  background: #f1f1f1;
+}
+
+.noData {
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  padding: 15px;
+}
+.teamToDoTable td button {
+  background-color: #007bff; /* Primary Blue */
+  color: #fff; /* White Text */
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.teamToDoTable td button:hover {
+  background-color: #0056b3; /* Darker Blue */
+}
+
+.teamToDoTable td button:active {
+  transform: scale(0.95);
+}
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.pageButton {
+  background: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pageButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .teamToDoTable th,
+  .teamToDoTable td {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teamToDoTableContainer {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .teamToDoTable th,
+  .teamToDoTable td {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .teamToDoTableTitle {
+    font-size: 20px;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teamToDoTable th,
+  .teamToDoTable td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .teamToDoTableTitle {
+    font-size: 18px;
+  }
+
+  .pageButton {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .pageInfo {
+    font-size: 14px;
+  }
+}
+
+.teamTodo_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 10px;
+}
+
+.teamTodo_Add_remark_popup {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.teamTodo_Add_remark_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.teamTodo_Add_remark_title {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.teamTodo_Add_remark_content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.teamTodo_Add_remark_phone_section,
+.teamTodo_Add_remark_email_section,
+.teamTodo_Add_remark_whatsapp_section,
+.teamTodo_Add_remark_Physical_Meeting_section,
+.teamTodo_Add_remark_Net_Searching_section,
+.teamTodo_Add_remark_Meeting_section,
+.teamTodo_Add_remark_Report_section,
+.teamTodo_Add_remark_Miscellaneous_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.teamTodo_Add_remark_phone_section:hover,
+.teamTodo_Add_remark_email_section:hover,
+.teamTodo_Add_remark_whatsapp_section:hover,
+.teamTodo_Add_remark_Physical_Meeting_section:hover,
+.teamTodo_Add_remark_Net_Searching_section:hover,
+.teamTodo_Add_remark_Meeting_section:hover,
+.teamTodo_Add_remark_Report_section:hover,
+.teamTodo_Add_remark_Miscellaneous_section:hover {
+  background: #e2e6ea;
+}
+
+.teamTodo_Add_remark_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.teamTodo_Add_remark_button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .teamTodo_Add_remark_popup {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .teamTodo_Add_remark_title {
+    font-size: 20px;
+  }
+
+  .teamTodo_Add_remark_content {
+    gap: 8px;
+  }
+
+  .teamTodo_Add_remark_button {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .teamTodo_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .teamTodo_Add_remark_title {
+    font-size: 18px;
+  }
+
+  .teamTodo_Add_remark_phone_section,
+  .teamTodo_Add_remark_email_section,
+  .teamTodo_Add_remark_whatsapp_section,
+  .teamTodo_Add_remark_Physical_Meeting_section,
+  .teamTodo_Add_remark_Net_Searching_section,
+  .teamTodo_Add_remark_Meeting_section,
+  .teamTodo_Add_remark_Report_section,
+  .teamTodo_Add_remark_Miscellaneous_section {
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+  }
+
+  .teamTodo_Add_remark_button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* phone */
+
+.phone_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 10px;
+}
+
+.phone_Add_remark_popup {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.phone_Add_remark_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+.phone_Add_remark_title {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.phone_Add_remark_content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.phone_Add_remark_section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.phone_Add_remark_input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.phone_Add_remark_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.phone_Add_remark_button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .phone_Add_remark_popup {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .phone_Add_remark_title {
+    font-size: 20px;
+  }
+
+  .phone_Add_remark_input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .phone_Add_remark_button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+  .phone_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .phone_Add_remark_title {
+    font-size: 18px;
+  }
+
+  .phone_Add_remark_input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .phone_Add_remark_button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+/* email */
+.email_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.email_Add_remark_popup {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.email_Add_remark_close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.email_Add_remark_title {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.email_Add_remark_counter {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.email_Add_remark_content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.email_Add_remark_input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.email_Add_remark_button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.email_Add_remark_button:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .email_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .email_Add_remark_title {
+    font-size: 20px;
+  }
+
+  .email_Add_remark_button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* whatapp */
+.whatsapp_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.whatsapp_Add_remark_popup {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.whatsapp_Add_remark_close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.whatsapp_Add_remark_title {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.whatsapp_Add_remark_counter {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.whatsapp_Add_remark_content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.whatsapp_Add_remark_input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.whatsapp_Add_remark_button {
+  background: #0056b3;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.whatsapp_Add_remark_button:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .whatsapp_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .whatsapp_Add_remark_title {
+    font-size: 20px;
+  }
+
+  .whatsapp_Add_remark_button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* physical */
+.physical_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.physical_Add_remark_popup {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.physical_Add_remark_close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.physical_Add_remark_close_text {
+  font-size: 14px;
+  color: #666;
+}
+
+.physical_Add_remark_title {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.physical_Add_remark_counter {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.physical_Add_remark_content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.physical_Add_remark_input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.physical_Add_remark_button {
+  background: #0056b3;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.physical_Add_remark_button:hover {
+  background: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .physical_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .physical_Add_remark_title {
+    font-size: 20px;
+  }
+
+  .physical_Add_remark_button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.netSearching_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.netSearching_Add_remark_popup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.netSearching_Add_remark_close {
+  margin-left: 280px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.netSearching_Add_remark_add_button {
+  background: #0056b3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.netSearching_Add_remark_popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .netSearching_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .netSearching_Add_remark_popup {
+    width: 90%;
+    padding: 10px;
+  }
+}
+.meeting_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.meeting_Add_remark_popup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.meeting_Add_remark_close {
+  margin-left: 280px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.meeting_Add_remark_add_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.meeting_Add_remark_popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .meeting_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .meeting_Add_remark_popup {
+    width: 90%;
+    padding: 10px;
+  }
+}
+.report_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.report_Add_remark_popup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.report_Add_remark_popup_close {
+  margin-left: 280px;
+  cursor: pointer;
+  font-size: 24px;
+}
+.report_Add_remark_add_button {
+  background-color: #1c59dd;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.report_Add_remark_popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .report_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report_Add_remark_popup {
+    width: 90%;
+    padding: 10px;
+  }
+}
+.miscellaneous_Add_remark_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.miscellaneous_Add_remark_popup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.miscellaneous_Add_remark_popup_close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  /* position: absolute; */
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.miscellaneous_Add_remark_add_button {
+  background: #0056b3;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  width: 220px;
+}
+
+.miscellaneous_Add_remark_popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .miscellaneous_Add_remark_popup {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .miscellaneous_Add_remark_popup {
+    width: 90%;
+    padding: 10px;
+  }
+}
+
+.phone_popup_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.phone_popup_card {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.phone_popup_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #333;
+}
+.phone_popup_delete_button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.phone_popup_title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.phone_popup_content {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.phone_popup_item {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.phone_popup_item p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.phone_no_data {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #888;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .phone_popup_card {
+    width: 95%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .phone_popup_title {
+    font-size: 18px;
+  }
+
+  .phone_popup_item p {
+    font-size: 13px;
+  }
+
+  .phone_popup_card {
+    width: 90%;
+  }
+}

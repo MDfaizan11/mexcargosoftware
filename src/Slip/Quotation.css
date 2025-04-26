@@ -1,0 +1,134 @@
+/* Quotation.css */
+
+.quotation-container {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quotation-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.quotation-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.quotation-header h2 {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #777;
+  letter-spacing: 2px;
+}
+
+.quotation-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.quotation-to {
+  margin-bottom: 20px;
+}
+
+.quotation-to p,
+.quotation-meta p {
+  margin: 2px 0;
+  flex: 1 1 200px;
+}
+
+.quotation-body p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.quotation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.quotation-table th,
+.quotation-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.quotation-table th {
+  background-color: #f5f5f5;
+}
+
+.terms h3 {
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.terms ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.terms ul {
+  padding-left: 20px;
+}
+
+.quotation-footer {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+.quotation-footer address {
+  margin-top: 10px;
+  font-style: normal;
+  color: #666;
+}
+.regarding {
+  display: flex;
+  justify-content: center;
+  gap: 550px;
+  margin-top: 70px;
+}
+
+@media (max-width: 768px) {
+  .quotation-meta,
+  .quotation-to {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quotation-table th,
+  .quotation-table td {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quotation-header h1 {
+    font-size: 20px;
+  }
+
+  .quotation-header h2 {
+    font-size: 14px;
+  }
+
+  .quotation-table th,
+  .quotation-table td {
+    padding: 8px;
+  }
+}

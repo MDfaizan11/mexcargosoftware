@@ -1,0 +1,89 @@
+.addnew_master_heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+.newAddMasterForm_container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.newAddMasterForm_field {
+  display: flex;
+  flex-direction: column;
+}
+
+.newAddMasterForm_field label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.newAddMasterForm_field input {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.newAddMasterForm_submit {
+  margin-top: 20px;
+  padding: 14px;
+  background: linear-gradient(135deg, #6c63ff, #5a54d6);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newAddMasterForm_submit:hover {
+  background: linear-gradient(135deg, #5a54d6, #4c43b8);
+}
+
+/* ------------------------------
+      Responsive Design
+  ------------------------------ */
+
+/* Tablet and above (min-width 768px) */
+@media (min-width: 768px) {
+  .newAddMasterForm_container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+/* Laptop and above (min-width 1024px) */
+@media (min-width: 1024px) {
+  .newAddMasterForm_container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on laptops/desktops */
+  }
+}
+
+/* Very small mobile (max-width 480px) */
+@media (max-width: 480px) {
+  .newAddMasterForm_field label {
+    font-size: 14px;
+  }
+
+  .newAddMasterForm_field input {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .newAddMasterForm_submit {
+    font-size: 14px;
+    padding: 12px;
+  }
+}

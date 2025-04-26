@@ -1,0 +1,213 @@
+.masterpage-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  padding: 25px;
+}
+
+.masterpage-header {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  margin-bottom: 25px;
+  backdrop-filter: blur(5px);
+}
+
+.masterpage-search-input {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px 18px;
+  border: 2px solid #ced4da;
+  border-radius: 25px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masterpage-search-input:focus {
+  border-color: #40c057;
+  box-shadow: 0 0 8px rgba(64, 192, 87, 0.3);
+  outline: none;
+}
+
+.masterpage-controls {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.masterpage-controls label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #343a40;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.masterpage-submit-btn {
+  padding: 10px 20px;
+  background-color: #40c057;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.masterpage-submit-btn:hover:not(:disabled) {
+  background-color: #37b24d;
+  transform: translateY(-2px);
+}
+
+.masterpage-submit-btn:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.masterpage-content {
+  padding: 0;
+}
+
+.masterpage-title {
+  color: #212529;
+  margin-bottom: 20px;
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 600;
+  text-align: center;
+}
+
+.masterpage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.masterpage-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid #0668f9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masterpage-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.masterpage-card-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.masterpage-card-checkbox input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #40c057;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.masterpage-card-checkbox input:checked {
+  background-color: #40c057;
+}
+
+.masterpage-card-checkbox input:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.masterpage-card-checkbox strong {
+  color: #212529;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.masterpage-card p {
+  margin: 8px 0;
+  color: #495057;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.masterpage-card p strong {
+  color: #343a40;
+  font-weight: 500;
+  min-width: 100px;
+}
+
+.masterpage-card p span {
+  color: #6c757d;
+  flex: 1;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .masterpage-wrapper {
+    padding: 15px;
+  }
+
+  .masterpage-header {
+    padding: 12px 15px;
+  }
+
+  .masterpage-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .masterpage-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .masterpage-header {
+    padding: 10px;
+  }
+
+  .masterpage-search-input {
+    max-width: 100%;
+  }
+
+  .masterpage-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .masterpage-card {
+    padding: 12px 15px;
+  }
+
+  .masterpage-card p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .masterpage-card p strong {
+    min-width: auto;
+  }
+}

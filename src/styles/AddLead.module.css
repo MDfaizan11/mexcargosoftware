@@ -1,0 +1,553 @@
+.lead_ref_tabpanel {
+  width: 600px;
+}
+.lead_ref_heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.lead_ref_form {
+  /* max-width: 500px; */
+  /* width: 100%; */
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lead_ref_form label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.lead_ref_input,
+.lead_ref_select {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+}
+
+.lead_ref_select {
+  background: #fff;
+  appearance: none;
+}
+
+.nextButton {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  transition: background 0.3s ease-in-out;
+}
+
+.nextButton:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lead_ref_tabpanel {
+    width: 515px;
+  }
+  .lead_ref_form {
+    padding: 15px;
+  }
+
+  .lead_ref_input,
+  .lead_ref_select,
+  .nextButton {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .lead_ref_tabpanel {
+    width: 315px;
+  }
+  .lead_ref_heading {
+    font-size: 20px;
+  }
+
+  .lead_ref_form {
+    padding: 10px;
+  }
+
+  .lead_ref_input,
+  .lead_ref_select,
+  .nextButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+.company_detail_tabpannel {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  /* padding: 20px; */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.tabHeading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.company_detail_tabpannel input {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+}
+
+.company_detail_tabpannel input::placeholder {
+  color: #aaa;
+}
+
+.nextButton {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  transition: background 0.3s ease-in-out;
+}
+
+.nextButton:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .company_detail_tabpannel {
+    padding: 15px;
+  }
+
+  .company_detail_tabpannel input,
+  .nextButton {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabHeading {
+    font-size: 20px;
+  }
+
+  .company_detail_tabpannel {
+    padding: 10px;
+  }
+
+  .company_detail_tabpannel input,
+  .nextButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+/* employee design */
+.employe_detail_tabpannel {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  /* padding: 20px; */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.employe_detail_tabHeading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.employe_detail_tabpannel input {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+}
+
+.employe_detail_tabpannel input::placeholder {
+  color: #aaa;
+}
+
+.nextButton {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  transition: background 0.3s ease-in-out;
+}
+
+.nextButton:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .employe_detail_tabpannel {
+    padding: 15px;
+  }
+
+  .employe_detail_tabpannel input,
+  .nextButton {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .employe_detail_tabHeading {
+    font-size: 20px;
+  }
+
+  .employe_detail_tabpannel {
+    padding: 10px;
+  }
+
+  .employe_detail_tabpannel input,
+  .nextButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+/* need */
+
+.need_tabpannel {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  /* padding: 20px; */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.need_tabHeading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.source {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.source input {
+  width: 48%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.need_tabpannel label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #555;
+}
+
+.need_tabpannel input {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+}
+
+.need_tabpannel input::placeholder {
+  color: #aaa;
+}
+
+.additionalField {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.additionalField input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.need_tabpannel button {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  transition: background 0.3s ease-in-out;
+  margin-top: 10px;
+}
+.need_tabpannel select {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+}
+.need_tabpannel button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .need_tabpannel {
+    padding: 15px;
+  }
+
+  .need_tabpannel input,
+  .source input,
+  .need_tabpannel button {
+    max-width: 100%;
+  }
+
+  .source {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .source input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .need_tabHeading {
+    font-size: 20px;
+  }
+
+  .need_tabpannel {
+    padding: 10px;
+  }
+
+  .need_tabpannel input,
+  .need_tabpannel button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+/* note design */
+.note_tabpanel {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  /* padding: 20px; */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.note_tabHeading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.note_tabpanel input,
+.note_tabpanel select {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
+}
+
+.note_tabpanel input::placeholder {
+  color: #aaa;
+}
+
+.note_tabpanel select {
+  background: #fff;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+  justify-content: flex-start;
+}
+
+.rating span {
+  font-size: 32px; /* Increased size */
+  cursor: pointer;
+  color: #f5a623;
+  transition: color 0.3s ease-in-out;
+}
+
+.starActive {
+  color: #f5a623;
+}
+
+.submitButton {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  transition: background 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .note_tabpanel {
+    padding: 15px;
+  }
+
+  .note_tabpanel input,
+  .note_tabpanel select,
+  .submitButton {
+    max-width: 100%;
+  }
+
+  .rating {
+    justify-content: flex-start; /* Ensure stars stay left */
+  }
+
+  .rating span {
+    font-size: 28px; /* Slightly smaller on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .note_tabHeading {
+    font-size: 20px;
+  }
+
+  .note_tabpanel {
+    padding: 10px;
+  }
+
+  .note_tabpanel input,
+  .note_tabpanel select,
+  .submitButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .rating span {
+    font-size: 24px; /* Adjusted for mobile */
+  }
+}
+
+.end_user_tabpannel {
+  background: #fff;
+  /* padding: 20px; */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.end_user_tabHeading {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.end_user_input_field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.end_user_input_field:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

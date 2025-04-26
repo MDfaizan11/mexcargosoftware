@@ -1,0 +1,834 @@
+.lead_search_section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lead_search_section input {
+  padding: 13px;
+  width: 350px;
+  margin-right: 10px;
+  border-radius: 15px;
+}
+.lead_search_section button {
+  height: 45px;
+  width: 170px;
+  background-color: #0356cf;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  box-shadow: 1px 3px 2px #0e65e6;
+}
+/* Table Wrapper */
+.lead_management_table_wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  margin-top: 20px;
+}
+.NeweditButton {
+  margin-top: 5px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  font-size: 12px;
+}
+.addExtraNeedButton {
+  margin-top: 5px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  font-size: 12px;
+}
+/* Table */
+.lead_management_table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Table Headers */
+.lead_management_table thead th {
+  background-color: #004aad;
+  color: white;
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #003580;
+  border: 1px solid #e0e0e0;
+}
+
+.lead_management_table tbody td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
+}
+
+.lead_management_table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.lead_management_table tbody tr:hover {
+  background-color: #f1f7ff;
+}
+
+.lead_management_table tbody td[colSpan="10"] {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 20px;
+}
+
+.viewButton,
+.editButton,
+.deleteButton {
+  padding: 8px 14px;
+  border: none;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.viewButton {
+  background-color: #007bff;
+  color: white;
+}
+.disable_button {
+  background-color: #cccccc;
+  color: white;
+  cursor: not-allowed;
+  border-radius: 6px;
+}
+
+.viewButton:hover {
+  background-color: #0056b3;
+}
+
+.editButton {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 27px;
+  margin-bottom: 3px;
+}
+
+.editButton:hover {
+  background-color: #1e7e34;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+}
+
+.deleteButton:hover {
+  background-color: #a71d2a;
+}
+.showFullDetailButton {
+  background-color: #17a2b8;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+.showFullDetailButton:hover {
+  background-color: #138496;
+}
+.follow_up_button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  font-size: 12px;
+}
+.Lead_multiple_button {
+  display: flex;
+  gap: 10px;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lead_management_table_wrapper {
+    padding: 15px;
+  }
+
+  .lead_management_table thead th {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .lead_management_table tbody td {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lead_management_table_wrapper {
+    padding: 10px;
+  }
+
+  .lead_management_table thead th {
+    font-size: 10px;
+    padding: 8px;
+  }
+
+  .lead_management_table tbody td {
+    font-size: 10px;
+    padding: 8px;
+  }
+
+  .viewButton,
+  .editButton,
+  .deleteButton,
+  .showFullDetailButton {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+.pagination .activePage {
+  background-color: #28a745 !important;
+  font-weight: bold;
+  border: 2px solid white;
+}
+
+.pagination .disabledButton {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+/* Popup Overlay */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Popup Content */
+.popupContent {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  height: 500px;
+  overflow: auto;
+}
+
+/* Close Button */
+.closeButton {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.closeButton:hover {
+  background: #cc0000;
+}
+
+.quatationOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.quatationPopup {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: quatationFadeIn 0.3s ease-in-out;
+}
+
+.quatationCloseButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.quatationPopupTitle {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.quatationForm input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.quatationForm select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.quatationSubmitButton {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+.quatationSubmitButton:hover {
+  background: #0056b3;
+}
+
+@keyframes quatationFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .quatationPopup {
+    width: 85%;
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quatationPopup {
+    width: 90%;
+    max-width: 400px;
+    padding: 15px;
+  }
+
+  .quatationPopupTitle {
+    font-size: 18px;
+  }
+
+  .quatationForm input {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .quatationForm select {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .quatationSubmitButton {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quatationPopup {
+    width: 95%;
+    max-width: 350px;
+    padding: 15px;
+  }
+
+  .quatationPopupTitle {
+    font-size: 16px;
+  }
+
+  .quatationForm input {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .quatationForm select {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .quatationSubmitButton {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .quatationCloseButton {
+    font-size: 18px;
+  }
+}
+
+.next_follow_button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 5px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: auto;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.next_follow_button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.next_follow_button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+  .next_follow_button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .next_follow_button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}
+
+/* follow up satatus */
+.followup_heading {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.followup_status {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.followup_table_container {
+  overflow-x: auto;
+}
+
+.followup_table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background-color: #fff;
+}
+
+.followup_table thead {
+  background-color: #f5f5f5;
+}
+
+.followup_table th,
+.followup_table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.followup_table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+@media screen and (max-width: 600px) {
+  .followup_heading {
+    font-size: 1rem;
+  }
+
+  .followup_table th,
+  .followup_table td {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+}
+/* ---- */
+/* Overlay Background */
+.nextfollwuppopupOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.nextfollwuppopupContent {
+  background-color: #ffffff;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.nextfollwuppopupTitle {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Form Layout */
+.nextFollowupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.nextFollowupForm label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.nextFollowupForm input,
+.nextFollowupForm select {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 0.5rem;
+  background-color: #fdfdfd;
+  transition: border 0.3s ease;
+}
+
+.nextFollowupForm input:focus,
+.nextFollowupForm select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button Group */
+.nextfollwupbuttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.nextfollwupcloseButton {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nextfollwupcloseButton:hover {
+  background-color: #c82333;
+}
+.nextfollwupsubmitButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive for small screens */
+@media screen and (max-width: 600px) {
+  .nextfollwuppopupContent {
+    padding: 1.2rem;
+  }
+
+  .nextfollwuppopupTitle {
+    font-size: 1.3rem;
+  }
+
+  .nextFollowupForm input,
+  .nextFollowupForm select {
+    font-size: 0.95rem;
+  }
+
+  .setShowNextFollowUpPopup {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .nextfollwupbuttonGroup {
+    flex-direction: column;
+  }
+}
+
+.taskButtonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.taskButtonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  justify-content: flex-start;
+}
+
+.taskButton {
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-width: 130px;
+  text-align: center;
+}
+
+.taskButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.nextFollowButton {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.nextFollowButton:hover {
+  background-color: #2563eb;
+}
+
+.otherTaskButton {
+  background-color: #facc15;
+  color: #1a1a1a;
+}
+
+.otherTaskButton:hover {
+  background-color: #eab308;
+}
+
+.planningButton {
+  background-color: #22c55e;
+  color: #fff;
+}
+
+.planningButton:hover {
+  background-color: #16a34a;
+}
+
+.accountButton {
+  background-color: #f97316;
+  color: #fff;
+}
+
+.accountButton:hover {
+  background-color: #ea580c;
+}
+
+@media (max-width: 600px) {
+  .taskButton {
+    min-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .taskButtonsContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+/* planning css */
+.planningexecutive_name_container_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.planningexecutive_name_container_popup {
+  position: relative;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.planningexecutive_name_container_closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.planningexecutive_name_container_title {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.planningexecutive_name_container_select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  appearance: none;
+  background-color: #f9fafb;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .planningexecutive_name_container_popup {
+    padding: 1.5rem;
+    width: 90%;
+  }
+
+  .planningexecutive_name_container_title {
+    font-size: 1.1rem;
+  }
+
+  .planningexecutive_name_container_select {
+    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+  }
+
+  .planningexecutive_name_container_closeBtn {
+    font-size: 1.3rem;
+    top: 8px;
+    right: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .planningexecutive_name_container_popup {
+    padding: 1.25rem;
+  }
+
+  .planningexecutive_name_container_title {
+    font-size: 1rem;
+  }
+
+  .planningexecutive_name_container_select {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.85rem;
+  }
+
+  .planningexecutive_name_container_closeBtn {
+    font-size: 1.2rem;
+  }
+}
+.planningexecutive_name_container_submitBtn {
+  margin-top: 1.25rem;
+  padding: 10px 20px;
+  background-color: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.planningexecutive_name_container_submitBtn:hover {
+  background-color: #2563eb;
+}

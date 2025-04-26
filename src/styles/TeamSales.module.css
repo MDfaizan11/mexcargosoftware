@@ -1,0 +1,788 @@
+.Team_search_baar {
+  width: 400px;
+  border-radius: 5px;
+}
+
+.team_Sales_search_section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.team_sales_add_button {
+  display: flex;
+  gap: 15px;
+}
+.team_sales_add_button button {
+  height: 45px;
+  width: 150px;
+  background-color: #02337b;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Modal Overlay */
+.Add_employe_modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.Add_employe_modal_content {
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+}
+
+/* Close Button */
+.Add_employe_close_button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Form Styling */
+.Add_employe_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Input Fields */
+.Add_employee_input,
+.Add_employee_select_input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.Add_employee_input:focus,
+.Add_employee_select_input:focus {
+  border-color: #007bff;
+}
+
+/* Submit Button */
+.Add_employe_submit_button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.Add_employe_submit_button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .Add_employe_modal_content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .Add_employee_input,
+  .Add_employee_select_input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .Add_employe_submit_button {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Add_employe_modal_content {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .Add_employee_input,
+  .Add_employee_select_input {
+    font-size: 14px;
+  }
+
+  .Add_employe_submit_button {
+    font-size: 14px;
+  }
+}
+
+/* create gropu */
+.create_group_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+.create_group_modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.create_group_modal_content {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+}
+
+.create_group_close_button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.create_group_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.create_group_input_field,
+.create_group_select_field {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.create_group_input_field:focus,
+.create_group_select_field:focus {
+  border-color: #007bff;
+}
+
+.create_group_select_field {
+  background: white;
+}
+
+.create_group_select_field[multiple] {
+  height: 100px;
+  overflow-y: auto;
+}
+
+.create_group_submit_button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.create_group_submit_button:hover {
+  background: #0056b3;
+}
+
+.create_group_submit_button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .create_group_modal_content {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .create_group_input_field,
+  .create_group_select_field {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .create_group_submit_button {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .create_group_modal_content {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .create_group_input_field,
+  .create_group_select_field {
+    font-size: 14px;
+  }
+
+  .create_group_submit_button {
+    font-size: 14px;
+  }
+}
+
+/* group name */
+.All_gropu_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  justify-items: center;
+  margin-top: 25px;
+}
+
+.groupContainer {
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+}
+
+.groupButton {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.groupButton:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.noGroups {
+  text-align: center;
+  font-size: 18px;
+  color: gray;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .All_gropu_container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .groupButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .All_gropu_container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+  }
+
+  .groupButton {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* team table */
+.teamSales_table_container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.teamSales_group_table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.teamSales_group_table th,
+.teamSales_group_table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border: 1px solid #eee;
+}
+
+.teamSales_group_table thead {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.teamSales_group_table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternating row color */
+}
+
+.leader_row {
+  background-color: #d1e7ff !important; /* Highlight leader */
+  font-weight: bold;
+}
+
+.member_row {
+  background-color: #ffffff;
+}
+
+.no_data {
+  text-align: center;
+  font-weight: bold;
+  color: red;
+  padding: 15px;
+}
+
+/* Buttons */
+.teamSales_group_table_delete_button button {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.teamSales_group_table_delete_button button:hover {
+  opacity: 0.8;
+}
+
+.teamSales_group_table_delete_button {
+  background-color: #dc3545;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+}
+
+.teamSales_group_table_delete_button:hover {
+  background-color: #c82333;
+}
+
+.teamSales_group_table_view_button {
+  background-color: #28a745;
+  padding: 6px 12px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.teamSales_group_table_view_button:hover {
+  background-color: #218838;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .teamSales_group_table th,
+  .teamSales_group_table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+/* Overlay to darken background */
+.change_leader_popup_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Popup content box */
+.change_leader_popup_content {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Close button */
+.close_change_leader_form {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Form styling */
+.change_leader_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.change_leader_form_title {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.change_leader_form_select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.change_leader_form_submit_button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.change_leader_form_submit_button:hover {
+  background: #0056b3;
+}
+
+/* *********** */
+
+.allGroupContainer {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 25px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.groupCard {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.groupCard:hover {
+  transform: translateY(-5px);
+}
+
+.groupName {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.viewButton,
+.editButton,
+.deleteButton {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.viewButton {
+  background-color: #007bff;
+  color: white;
+}
+
+.editButton {
+  background-color: #ffc107;
+  color: black;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.viewButton:hover {
+  background-color: #0056b3;
+}
+
+.editButton:hover {
+  background-color: #e0a800;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}
+
+.noGroups {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Background overlay */
+.edit_groupName_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dim background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal box */
+.edit_groupName_modal {
+  background: white;
+  width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+/* Close button */
+.edit_groupName_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Title */
+.edit_groupName_title {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Form input */
+.edit_groupName_form_input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Submit button */
+.edit_groupName_form_submit_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.edit_groupName_form_submit_button:hover {
+  background-color: #0056b3;
+}
+
+.add_memberContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.add_memberModal {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add_memberHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 1rem;
+}
+
+.add_memberHeader h3 {
+  margin: 0;
+  color: #007bff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.add_memberCloseButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666666;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  transition: color 0.3s ease;
+}
+
+.add_memberCloseButton:hover {
+  color: #007bff;
+}
+
+.add_memberForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add_member_form_select {
+  padding: 0.8rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #444444;
+  background: #f8f9fa;
+  width: 100%;
+}
+
+.add_member_form_select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add_member_submit_button {
+  background: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.add_member_submit_button:hover {
+  background: #007bff;
+}
+
+@media (max-width: 768px) {
+  .add_memberModal {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .add_memberHeader h3 {
+    font-size: 1.2rem;
+  }
+
+  .add_memberModal {
+    padding: 1rem;
+  }
+}

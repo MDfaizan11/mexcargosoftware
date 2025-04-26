@@ -1,0 +1,134 @@
+.login_main_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.formContainer {
+  width: 350px;
+  height: auto;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  text-align: center;
+  margin: 50px auto;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  font-family: "Lucida Sans", Geneva, Verdana, sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input {
+  border-radius: 20px;
+  border: 1px solid #c0c0c0;
+  padding: 12px 15px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: teal;
+  box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+}
+
+.pageLink {
+  text-align: right;
+  font-size: 12px;
+  color: #747474;
+}
+
+.pageLinkLabel {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.pageLinkLabel:hover {
+  color: black;
+}
+
+.formBtn {
+  padding: 12px;
+  border-radius: 20px;
+  background: teal;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: 0.3s;
+}
+
+.formBtn:hover {
+  background-color: #005f5f;
+}
+
+.signUpLabel {
+  font-size: 12px;
+  color: #747474;
+  margin-top: 10px;
+}
+
+.signUpLink {
+  font-weight: bold;
+  color: teal;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+  .formContainer {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .input {
+    font-size: 14px;
+  }
+
+  .formBtn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .signUpLabel {
+    font-size: 10px;
+  }
+}
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.passwordContainer input {
+  width: 100%;
+  padding-right: 40px; /* Space for the eye icon */
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+}
