@@ -260,7 +260,9 @@ import axiosInstance from "../utils/axiosInstance";
 import { BASE_URL } from "../config";
 import { useParams } from "react-router-dom";
 function NewMasterAdd() {
-  const { leadId, quatationId } = useParams();
+  const { quatationId, leadId } = useParams();
+  console.log([leadId, quatationId]);
+  console.log(`QuatationId ${quatationId}`);
   const token = JSON.parse(localStorage.getItem("mexcargoUserData"))?.token;
 
   const [associateCode, setAssociateCode] = useState("");

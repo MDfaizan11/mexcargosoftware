@@ -26,6 +26,8 @@ import OtherTask from "./SalesPages/OtherTask";
 import Planning from "./Planning/Planning";
 import PlanningDetails from "./Planning/PlanningDetails";
 import NewMasterAdd from "./Planning/NewMasterAdd";
+import Project from "./Project/Project";
+import ViewTask from "./Project/ViewTask";
 function App() {
   return (
     <>
@@ -83,6 +85,8 @@ function App() {
                 element={<NewMasterAdd />}
                 path="/newMasterAdd/:quatationId/:leadId"
               />
+              <Route path="/project" element={<Project />} />
+              <Route path="/viewTask/:id" element={<ViewTask />} />
             </Route>
           </Route>
         </Routes>

@@ -1,6 +1,7 @@
 .lead_search_section {
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 15px;
 }
 
 .lead_search_section input {
@@ -8,6 +9,10 @@
   width: 350px;
   margin-right: 10px;
   border-radius: 15px;
+  outline: none;
+
+  box-shadow: 1px 3px 5px #dfe1e300;
+  border: 1px solid #c6c6eb;
 }
 .lead_search_section button {
   height: 45px;
@@ -25,15 +30,12 @@
   box-shadow: 1px 3px 2px #0e65e6;
 }
 /* Table Wrapper */
-.lead_management_table_wrapper {
-  width: 100%;
-  overflow-x: auto;
-  background-color: #fff;
+/* .lead_management_table_wrapper {
   border-radius: 12px;
+  background: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  margin-top: 20px;
-}
+  overflow: hidden;
+} */
 .NeweditButton {
   margin-top: 5px;
   background-color: #28a745;
@@ -56,35 +58,41 @@
   border: none;
   font-size: 12px;
 }
-/* Table */
 .lead_management_table {
   width: 100%;
   border-collapse: collapse;
-  border-radius: 12px;
-  overflow: hidden;
 }
 
-/* Table Headers */
 .lead_management_table thead th {
   background-color: #004aad;
   color: white;
   padding: 14px 16px;
-  text-align: left;
   font-weight: bold;
   font-size: 14px;
   text-transform: uppercase;
-  border-bottom: 2px solid #003580;
   border: 1px solid #e0e0e0;
 }
+/* .scrollable_tbody_wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: none;
+} */
 
-.lead_management_table tbody td {
+.scrollable_tbody_wrapper .lead_management_table td {
   padding: 14px 16px;
   font-size: 14px;
   color: #333;
-  border-bottom: 1px solid #e0e0e0;
   border: 1px solid #e0e0e0;
 }
+.scrollable_tbody_wrapper .lead_management_table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
 
+/* Optional: align column widths */
+.lead_management_table th,
+.scrollable_tbody_wrapper .lead_management_table td {
+  width: auto;
+}
 .lead_management_table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
@@ -658,16 +666,15 @@
 }
 
 .taskButton {
-  padding: 10px 20px;
   font-size: 13px;
   font-weight: 500;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  min-width: 130px;
   text-align: center;
+  height: 45px;
+  width: 87px;
 }
 
 .taskButton:hover {
@@ -831,4 +838,10 @@
 
 .planningexecutive_name_container_submitBtn:hover {
   background-color: #2563eb;
+}
+
+/* *** */
+.lead_management_table tbody td {
+  border: 1px solid gainsboro;
+  padding: 5px;
 }

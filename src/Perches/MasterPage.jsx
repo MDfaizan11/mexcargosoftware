@@ -226,6 +226,7 @@ function MasterPage() {
             },
           }
         );
+        console.log(response.data);
         setAllMasterList(response.data);
 
         const sentMastersRes = await axiosInstance.get(
@@ -320,8 +321,11 @@ function MasterPage() {
     }
   };
 
-  const filtermaster = allMasterList.filter((item) =>
-    item.contactName.toLowerCase().includes(searchMaster.toLowerCase())
+  const filtermaster = allMasterList.filter(
+    (item) =>
+      item.contactName.toLowerCase().includes(searchMaster.toLowerCase()) ||
+      item.hub.toLowerCase().includes(searchMaster.toLocaleLowerCase()) ||
+      item.state.toLowerCase().includes(searchMaster.toLocaleLowerCase())
   );
 
   return (
@@ -376,7 +380,7 @@ function MasterPage() {
 
       <div className="masterpage-content">
         <h2 className="masterpage-title">Master List</h2>
-        <div className="masterpage-grid">
+        {/* <div className="masterpage-grid">
           {filtermaster.map((item) => {
             const isAlreadySent = alreadySentMasters.includes(item.masterId);
             return (
@@ -434,6 +438,11 @@ function MasterPage() {
                     <strong>Location:</strong> <span>{item.location}</span>
                   </p>
                 )}
+                {item.location && (
+                  <p>
+                    <strong>Grade:</strong> <span>{item.grade} star</span>
+                  </p>
+                )}
                 {item.state && (
                   <p>
                     <strong>State:</strong> <span>{item.state}</span>
@@ -442,6 +451,61 @@ function MasterPage() {
               </div>
             );
           })}
+        </div> */}
+        <div className="masterpage_table-wrapper">
+          <div className="masterpage_table-scroll">
+            <table className="masterpage_table">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>Hub</th>
+                  <th>Associate Code</th>
+                  <th>Service Sector</th>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Location</th>
+                  <th>Grade</th>
+                  <th>State</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtermaster.map((item) => {
+                  const isAlreadySent = alreadySentMasters.includes(
+                    item.masterId
+                  );
+                  return (
+                    <tr
+                      key={item.masterId}
+                      className={`masterpage_table-row ${
+                        isAlreadySent ? "masterpage_table-already-sent" : ""
+                      }`}
+                    >
+                      <td>
+                        <input
+                          type="checkbox"
+                          disabled={isAlreadySent}
+                          checked={selectedItems.includes(item.masterId)}
+                          onChange={() => handleCheckboxChange(item.masterId)}
+                        />
+                      </td>
+                      <td>{item.hub}</td>
+                      <td>{item.associateCode}</td>
+                      <td>{item.serviceSector}</td>
+                      <td>{item.companyName}</td>
+                      <td>{item.contactName}</td>
+                      <td>{item.contactNumber || "-"}</td>
+                      <td>{item.emailId || "-"}</td>
+                      <td>{item.location || "-"}</td>
+                      <td>{item.grade ? `${item.grade} star` : "-"}</td>
+                      <td>{item.state || "-"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

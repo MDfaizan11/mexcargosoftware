@@ -16,7 +16,10 @@ function Planning() {
   const [projectExecutveList, setProjectExecutveList] = useState([]);
   const [leadId, setLeadId] = useState(null);
   const [projectExecutiveId, setProjectExecutiveId] = useState("");
+  const [AccountExecutiveLeadId, setAccountExecutiveLeadId] = useState("");
   const [AccountExecutiveId, setAccountExecutiveId] = useState("");
+  const [AccountExecutiveList, setAccountExecutiveList] = useState("");
+  const [showAccontExecutiveList, setshowAccontExecutiveList] = useState(false);
   function formatDateAndTimeIST(dateOrDatePart, timePart = null) {
     if (!dateOrDatePart) return "N/A";
 
@@ -111,7 +114,7 @@ function Planning() {
       leadId: leadId,
       projectExecutiveIds: Number(projectExecutiveId),
     };
-    console.log(body);
+
     try {
       const response = await axiosInstance.post(
         `${BASE_URL}/send-email-to-project`,
@@ -135,7 +138,8 @@ function Planning() {
   }
 
   async function getAllAccountExecutiveList(id) {
-    setAccountExecutiveId(id);
+    setAccountExecutiveLeadId(id);
+    setshowAccontExecutiveList(true);
     try {
       const response = await axiosInstance.get(
         `${BASE_URL}/get/account-executive-list`,
@@ -146,7 +150,37 @@ function Planning() {
           },
         }
       );
+      setAccountExecutiveList(response.data);
       console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleSendAccontExecutive(e) {
+    e.preventDefault();
+    const formdata = {
+      leadId: AccountExecutiveLeadId,
+      accountExecutiveId: AccountExecutiveId,
+    };
+
+    try {
+      const response = await axiosInstance.post(
+        `${BASE_URL}/send-email-to-account`,
+        formdata,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response.data);
+      if (response.status === 200) {
+        alert("Successfully Data send to Account Executive");
+        setshowAccontExecutiveList(false);
+        setAccountExecutiveId("");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -155,7 +189,7 @@ function Planning() {
   return (
     <>
       <div className="planningCard-container">
-        <h2>Planning</h2>
+        <h2>Planning Data</h2>
         {planningData.length === 0 ? (
           <p>No planning data available.</p>
         ) : (
@@ -222,23 +256,28 @@ function Planning() {
                   <strong>Other Services:</strong> {item.otherServices || "N/A"}
                 </p>
 
-                <button
-                  className="planning_crd_viewButton"
-                  onClick={() =>
-                    handleClickPlannigdetail(item.quatationId, item.leadId)
-                  }
-                >
-                  View Details
-                </button>
-                <button
-                  className="planning_crd_sentToProjectButton"
-                  onClick={() => getallProjectExecutveList(item.leadId)}
-                >
-                  Sent to Project
-                </button>
-                <button onClick={() => getAllAccountExecutiveList(item.leadId)}>
-                  Sent to Account
-                </button>
+                <div className="planning_multi_button">
+                  <button
+                    className="planning_crd_viewButton"
+                    onClick={() =>
+                      handleClickPlannigdetail(item.quatationId, item.leadId)
+                    }
+                  >
+                    View Details
+                  </button>
+                  <button
+                    className="planning_crd_sentToProjectButton"
+                    onClick={() => getallProjectExecutveList(item.leadId)}
+                  >
+                    Sent to Project
+                  </button>
+                  <button
+                    onClick={() => getAllAccountExecutiveList(item.leadId)}
+                    className="planning_crd_sentToProjectButton"
+                  >
+                    Sent to Account
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -270,6 +309,46 @@ function Planning() {
                 >
                   <option value="">Select Project Executive</option>
                   {projectExecutveList.map((executive) => (
+                    <option key={executive.id} value={executive.userId}>
+                      {executive.userName}
+                    </option>
+                  ))}
+                </select>
+              )}
+              <button type="submit" className="project-executive-submit-button">
+                Submit
+              </button>
+            </form>
+          </div>
+        </>
+      )}
+
+      {showAccontExecutiveList && (
+        <>
+          <div
+            className="project-executive-overlay"
+            onClick={() => setshowAccontExecutiveList(false)}
+          ></div>
+
+          <div className="project-executive-container">
+            <button
+              onClick={() => setshowAccontExecutiveList(false)}
+              className="project-executive-close-button"
+            >
+              ×
+            </button>
+            <h2>Account Executive List</h2>
+            <form onSubmit={handleSendAccontExecutive}>
+              {AccountExecutiveList.length === 0 ? (
+                <p>No Account executives available.</p>
+              ) : (
+                <select
+                  className="project-executive-select"
+                  value={AccountExecutiveId}
+                  onChange={(e) => setAccountExecutiveId(e.target.value)}
+                >
+                  <option value="">Select Account Executive</option>
+                  {AccountExecutiveList.map((executive) => (
                     <option key={executive.id} value={executive.userId}>
                       {executive.userName}
                     </option>

@@ -1,0 +1,190 @@
+.Project_heading {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.projectCardData-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.projectCardData-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.projectCardData-card:hover {
+  transform: translateY(-5px);
+}
+
+.projectCardData-title {
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.projectCardData-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.projectCardData-empty {
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+  width: 100%;
+}
+.project_add_task_button {
+  margin-left: 5px;
+  height: 35px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  background-color: #02337b;
+  color: white;
+}
+@media (max-width: 768px) {
+  .projectCardData-card {
+    padding: 16px;
+  }
+
+  .projectCardData-title {
+    font-size: 16px;
+  }
+
+  .projectCardData-card p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectCardData-container {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .projectCardData-card {
+    padding: 14px;
+  }
+
+  .projectCardData-title {
+    font-size: 15px;
+  }
+
+  .projectCardData-card p {
+    font-size: 12.5px;
+  }
+}
+/* *****task form */
+
+.project_task_from_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.project_task_from_popup {
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.project_task_from_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.project_task_from_input {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0 16px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.project_task_from_label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 8px;
+  display: block;
+}
+
+.project_task_from_submit_button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.project_task_from_submit_button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .project_task_from_popup {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .project_task_from_input {
+    font-size: 13px;
+  }
+
+  .project_task_from_submit_button {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project_task_from_popup {
+    padding: 15px;
+  }
+
+  .project_task_from_input {
+    padding: 8px;
+    font-size: 12.5px;
+  }
+
+  .project_task_from_label {
+    font-size: 13px;
+  }
+
+  .project_task_from_submit_button {
+    font-size: 13px;
+  }
+}

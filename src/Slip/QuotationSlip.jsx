@@ -5,37 +5,6 @@ import { useEffect, useState } from "react";
 import { BASE_URL } from "../config";
 
 const QuotationSlip = () => {
-  const [departments, setDepartments] = useState([]);
-  const token = JSON.parse(localStorage.getItem("mexcargoUserData"))?.token;
-  const [name, setname] = useState("");
-  const [role, setRole] = useState("");
-  useEffect(() => {
-    async function fetchDepartments() {
-      try {
-        const response = await fetch(`${BASE_URL}/department`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-
-        const data = await response.json();
-        console.log("Departments:", data);
-        setDepartments(data);
-      } catch (error) {
-        console.error("Error fetching departments:", error);
-      }
-    }
-    fetchDepartments();
-  }, []);
-
-  function handleselectdepartment(e) {
-    const deparmt = e.target.value;
-    console.log(deparmt);
-    setname(deparmt);
-    const role = departments.find((role) => role.departmentId == deparmt);
-    console.log(role?.roleList);
-  }
   return (
     <>
       <div className="quotation-container">
@@ -95,14 +64,19 @@ const QuotationSlip = () => {
             </thead>
             <tbody>
               {[
-                "Packing",
-                "Loading",
-                "Unloading",
-                "Unpacking",
-                "Packing + Loading",
-                "Unloading + Unpacking",
-                "Packing + Loading + Unloading + Unpacking",
-                "Transportation of Household",
+                "Packing,Loading,Unloading",
+                "Packing,Loading,Unloading,Transportation",
+                "Transportation Of House Hold Close Iron Body (12.5 MT) Container",
+                "Transportation Of House Hold In Big Container 25MT Equivalent To Two Container (12.5 MT)",
+                "Transportation Of Car (By Single Car Carrier Container)",
+                "Transportation Of Car (By Shared Common Car carrier)",
+                "Other Services",
+                "Basic Amount",
+                "Handy Man Services",
+                "GST As Per GOVT Rule",
+                "Transit Risk Coverage",
+                " Risk Coverage Except Transit Insurance / FOV / @ 3% On Declared Value Of House Holds",
+                " Risk Coverage Except Transit Insurance / FOV / @ 3% On Declared Value Of Car",
               ].map((item, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
@@ -188,35 +162,6 @@ const QuotationSlip = () => {
           </address>
         </footer>
       </div>
-
-      {/* {departments.map((depatments, index) => {
-        return (
-          <>
-            <select
-              name=""
-              id=""
-              value={name}
-              onChange={handleselectdepartment}
-            >
-              <option value=""> {depatments.departmentName}</option>
-            </select>
-          </>
-        );
-      })} */}
-
-      <select name="" id="" value={name} onChange={handleselectdepartment}>
-        <option value=""> select</option>
-
-        {departments.map((department, index) => {
-          return (
-            <>
-              <option key={index} value={department.departmentId}>
-                {department.departmentName}
-              </option>
-            </>
-          );
-        })}
-      </select>
     </>
   );
 };

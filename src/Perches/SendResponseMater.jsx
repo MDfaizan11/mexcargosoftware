@@ -173,23 +173,30 @@ function SendResponseMater() {
             <tbody>
               <tr>
                 <td>Package</td>
-                <td>₹{responseData.originalPackageCost}</td>
-                <td>₹{responseData.finalPackageCost}</td>
+                <td>₹{responseData.originalPackageCost?.toLocaleString()}</td>
+                <td>₹{responseData.finalPackageCost?.toLocaleString()}</td>
               </tr>
               <tr>
                 <td>TRS</td>
-                <td>₹{responseData.originalTrsCost}</td>
-                <td>₹{responseData.finalTrsCost}</td>
+                <td>₹{responseData.originalTrsCost?.toLocaleString()}</td>
+                <td>₹{responseData.finalTrsCost?.toLocaleString()}</td>
               </tr>
               <tr>
                 <td>Car Service</td>
-                <td>₹{responseData.originalCarServiceCost}</td>
-                <td>₹{responseData.finalCarServiceCost}</td>
+                <td>
+                  ₹{responseData.originalCarServiceCost?.toLocaleString()}
+                </td>
+                <td>₹{responseData.finalCarServiceCost?.toLocaleString()}</td>
               </tr>
               <tr>
                 <td>Additional Service</td>
-                <td>₹{responseData.originalAdditionalCost}</td>
-                <td>₹{responseData.finalAdditionalCost}</td>
+                <td>
+                  ₹
+                  {responseData.originalAdditionalServiceCost?.toLocaleString()}
+                </td>
+                <td>
+                  ₹{responseData.finalAdditionalServiceCost?.toLocaleString()}
+                </td>
               </tr>
             </tbody>
           </table>

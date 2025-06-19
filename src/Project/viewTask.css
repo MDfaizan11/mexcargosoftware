@@ -1,0 +1,237 @@
+.viewtaskcard-container {
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.viewtaskcard-title {
+  grid-column: 1 / -1;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.viewtaskcard-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.viewtaskcard-card:hover {
+  transform: translateY(-5px);
+}
+
+.viewtaskcard-taskname {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.viewtaskcard-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 6px 0;
+}
+
+.viewtaskcard-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+}
+@media (max-width: 768px) {
+  .viewtaskcard-container {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .viewtaskcard-title {
+    font-size: 20px;
+  }
+
+  .viewtaskcard-taskname {
+    font-size: 16px;
+  }
+
+  .viewtaskcard-card p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .viewtaskcard-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .viewtaskcard-title {
+    font-size: 18px;
+  }
+
+  .viewtaskcard-taskname {
+    font-size: 15px;
+  }
+
+  .viewtaskcard-card {
+    padding: 16px;
+  }
+
+  .viewtaskcard-card p {
+    font-size: 12.5px;
+  }
+}
+.viewtaskcard-button-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.viewtaskcard-edit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.viewtaskcard-edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.viewtaskcard-delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.viewtaskcard-delete-btn:hover {
+  background-color: #b02a37;
+}
+
+@media (max-width: 480px) {
+  .viewtaskcard-edit-btn,
+  .viewtaskcard-delete-btn {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}
+/* ***update */
+/* Background Overlay */
+.update_task_form_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Box */
+.update_task_form_popup {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.update_task_form_close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Form Layout */
+.update_task_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update_task_form label {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #444;
+}
+
+.update_task_form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Submit Button */
+.update_task_form_button {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.update_task_form_button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .update_task_form_popup {
+    margin: 0 16px;
+    padding: 20px;
+  }
+
+  .update_task_form_button {
+    font-size: 14px;
+    padding: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .update_task_form_popup {
+    padding: 16px;
+  }
+
+  .update_task_form label {
+    font-size: 13px;
+  }
+
+  .update_task_form input {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .update_task_form_button {
+    font-size: 13.5px;
+    padding: 8px;
+  }
+}

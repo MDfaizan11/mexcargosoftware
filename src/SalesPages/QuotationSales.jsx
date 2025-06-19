@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import { BASE_URL } from "../config";
 import styles from "../styles/Quatation.module.css";
 import axiosInstance from "../utils/axiosInstance";
@@ -8,6 +8,7 @@ function QuotationSales() {
   const [executiveData, setExecutiveData] = useState([]);
   const [quotations, setQuotations] = useState([]);
   const [isExecutiveOpen, setIsExecutiveOpen] = useState(false);
+  const [searchQuatation, setSearchQuatation] = useState("");
   useEffect(() => {
     async function GetAllQuatation() {
       try {
@@ -46,7 +47,12 @@ function QuotationSales() {
       console.log(error);
     }
   }
+
   function formatTimeLocal(timeStr) {
+    if (!timeStr || typeof timeStr !== "string") {
+      return "Invalid time"; // Fallback value or handle as needed
+    }
+
     const [hours, minutes, seconds] = timeStr.split(":");
     const date = new Date();
     date.setHours(+hours, +minutes, +seconds);
@@ -59,13 +65,27 @@ function QuotationSales() {
     });
   }
 
+  const filterQuatation = quotations.filter((quatation, index) => {
+    return quatation.source
+      .toLowerCase()
+      .includes(searchQuatation.toLocaleLowerCase());
+  });
   return (
     <>
+      <h2 className={styles.Quotationheading}>Quotation Sales</h2>
+
+      <div className={styles.quatation_sales_search_baar}>
+        <input
+          type="search"
+          value={searchQuatation}
+          onChange={(e) => setSearchQuatation(e.target.value)}
+          placeholder="Search by Source...."
+        />
+      </div>
       <div className={styles.Quotationcontainer}>
-        <h2 className={styles.Quotationheading}>Quotation Sales</h2>
         <div className={styles.QuotationcardContainer}>
           {quotations.length > 0 ? (
-            quotations.map((quotation, index) => (
+            filterQuatation.map((quotation, index) => (
               <div key={index} className={styles.quatationcard}>
                 <div className={styles.cardHeader}>
                   <h3>#{quotation.quatationReferenceNo}</h3>

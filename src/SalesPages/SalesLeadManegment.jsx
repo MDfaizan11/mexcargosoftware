@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/Leadmanegment.module.css";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
-import axios from "axios";
 import axiosInstance from "../utils/axiosInstance";
 function SalesLeadManegment() {
   const navigate = useNavigate();
@@ -412,7 +411,10 @@ function SalesLeadManegment() {
           type="search"
           placeholder="Search By Lead REF No..."
           value={searchLeadRefNo}
-          onChange={(e) => setSearchLeadRefNo(e.target.value)}
+          onChange={(e) => {
+            setSearchLeadRefNo(e.target.value);
+            setPage(0);
+          }}
         />
         <div className={styles.Lead_multiple_button}>
           <button onClick={() => navigate("/add_lead")}> Add Lead</button>
@@ -427,143 +429,142 @@ function SalesLeadManegment() {
               <th>Lead Ref No</th>
               <th>Date</th>
               <th>Time</th>
-              <th> RFQ Sent To End User</th>
-              {/* <th>Mode Of Contact</th> */}
+              <th>RFQ Sent To End User</th>
               <th>Company Details</th>
               <th>Employee Details</th>
               <th>Need</th>
               <th>Note</th>
-              <th> RFQ</th>
-              <th> Quatation Status</th>
+              <th>RFQ</th>
+              <th>Quotation Status</th>
               <th>Actions</th>
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
-            {handleSearchLead.length > 0 ? (
-              handleSearchLead.map((lead) => (
-                <tr key={lead.leadId}>
-                  <td>{lead.leadReferenceNo}</td>
-                  <td>{new Date(lead.leadDate).toLocaleDateString("en-GB")}</td>
-
-                  <td>{formatTime(lead.leadTime)}</td>
-                  <td>
-                    {lead.isQuatationSendToUser
-                      ? " Already Sent To End User"
-                      : "Pending"}
-                  </td>
-                  {/* <td>{lead.modeOfCommunication}</td> */}
-                  <td>
-                    <button
-                      className={styles.viewButton}
-                      onClick={() => handleViewCompanyDetail(lead.leadId)}
-                    >
-                      View
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      className={styles.viewButton}
-                      onClick={() => handleViewEmployeeDetail(lead.leadId)}
-                    >
-                      View
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      className={styles.viewButton}
-                      onClick={() => handleViewLeadNeed(lead.leadId)}
-                    >
-                      View
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      className={styles.viewButton}
-                      onClick={() => fetchLeadNote(lead.leadId)}
-                    >
-                      View
-                    </button>
-                  </td>
-                  <td>
-                    <button
-                      onClick={() => handleAddQuatation(lead.leadId)}
-                      className={
-                        lead.isQuatationCreated
-                          ? styles.disable_button
-                          : styles.viewButton
-                      }
-                      disabled={lead.isQuatationCreated}
-                    >
-                      {lead.isQuatationCreated
-                        ? "Quatation Added"
-                        : "  Add Quatation"}
-                    </button>
-                  </td>
-                  <td>
-                    <p>
-                      {lead.isQuatationCreated
-                        ? "Already Sent to Perches"
-                        : "Pending"}
-                    </p>
-                  </td>
-                  <td>
-                    <button className={styles.editButton}>Edit</button>
-                    <button
-                      className={styles.deleteButton}
-                      onClick={() => handleDeleteLead(lead.leadId)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                  <td className={styles.taskButtonsContainer}>
-                    <button
-                      className={`${styles.taskButton} ${styles.nextFollowButton}`}
-                      onClick={() => handleshowNextFollowUp(lead.leadId)}
-                    >
-                      Next Follow Up
-                    </button>
-
-                    {lead.followUpStatus === "COMPLETED" && (
-                      <button
-                        className={`${styles.taskButton} ${styles.otherTaskButton}`}
-                        onClick={() => handleAddOtherTash(lead.leadId)}
-                      >
-                        Other Task
-                      </button>
-                    )}
-
-                    {lead.isVerbalConfirmationTaskCompleted && (
-                      <>
-                        <button
-                          className={`${styles.taskButton} ${styles.planningButton}`}
-                          onClick={() =>
-                            handleShowPlanningExecutive(lead.leadId)
-                          }
-                        >
-                          Sent To Planning
-                        </button>
-                        <button
-                          className={`${styles.taskButton} ${styles.accountButton}`}
-                          onClick={() =>
-                            handleShowAccountExecutive(lead.leadId)
-                          }
-                        >
-                          Sent To Account
-                        </button>
-                      </>
-                    )}
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="10">No leads found</td>
-              </tr>
-            )}
-          </tbody>
         </table>
+
+        <div className={styles.scrollable_tbody_wrapper}>
+          <table className={styles.lead_management_table}>
+            <tbody>
+              {handleSearchLead.length > 0 ? (
+                handleSearchLead.map((lead) => (
+                  <tr key={lead.leadId}>
+                    <td>{lead.leadReferenceNo}</td>
+                    <td>
+                      {new Date(lead.leadDate).toLocaleDateString("en-GB")}
+                    </td>
+                    <td>{formatTime(lead.leadTime)}</td>
+                    <td>
+                      {lead.isQuatationSendToUser ? "Already Sent" : "Pending"}
+                    </td>
+                    <td>
+                      <button
+                        className={styles.viewButton}
+                        onClick={() => handleViewCompanyDetail(lead.leadId)}
+                      >
+                        View
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        className={styles.viewButton}
+                        onClick={() => handleViewEmployeeDetail(lead.leadId)}
+                      >
+                        View
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        className={styles.viewButton}
+                        onClick={() => handleViewLeadNeed(lead.leadId)}
+                      >
+                        View
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        className={styles.viewButton}
+                        onClick={() => fetchLeadNote(lead.leadId)}
+                      >
+                        View
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => handleAddQuatation(lead.leadId)}
+                        className={
+                          lead.isQuatationCreated
+                            ? styles.disable_button
+                            : styles.viewButton
+                        }
+                        disabled={lead.isQuatationCreated}
+                      >
+                        {lead.isQuatationCreated
+                          ? "Quatation Added"
+                          : "Add Quatation"}
+                      </button>
+                    </td>
+                    <td>
+                      {lead.isQuatationCreated
+                        ? "Already Sent to Purchase"
+                        : "Pending"}
+                    </td>
+                    <td>
+                      <button className={styles.editButton}>Edit</button>
+                      <button
+                        className={styles.deleteButton}
+                        onClick={() => handleDeleteLead(lead.leadId)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                    <td className={styles.taskButtonsContainer}>
+                      <button
+                        className={`${styles.taskButton} ${styles.nextFollowButton}`}
+                        onClick={() => handleshowNextFollowUp(lead.leadId)}
+                      >
+                        Next Follow Up
+                      </button>
+                      {lead.followUpStatus === "COMPLETED" && (
+                        <button
+                          className={`${styles.taskButton} ${styles.otherTaskButton}`}
+                          onClick={() => handleAddOtherTash(lead.leadId)}
+                        >
+                          Other Task
+                        </button>
+                      )}
+                      {lead.isVerbalConfirmationTaskCompleted && (
+                        <>
+                          <button
+                            className={`${styles.taskButton} ${styles.planningButton}`}
+                            onClick={() =>
+                              handleShowPlanningExecutive(lead.leadId)
+                            }
+                          >
+                            Sent To Planning
+                          </button>
+                          <button
+                            className={`${styles.taskButton} ${styles.accountButton}`}
+                            onClick={() =>
+                              handleShowAccountExecutive(lead.leadId)
+                            }
+                          >
+                            Sent To Account
+                          </button>
+                        </>
+                      )}
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="12">No leads found</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
+
       <div className={styles.pagination}>
         <button
           disabled={page === 0}
@@ -925,6 +926,7 @@ function SalesLeadManegment() {
                   className={styles.quatationInput}
                   value={Quatationdate}
                   onChange={(e) => setQuatationdate(e.target.value)}
+                  required
                 />
 
                 <label>Quotation Required Time</label>
@@ -933,6 +935,7 @@ function SalesLeadManegment() {
                   className={styles.quatationInput}
                   value={QuatationTime}
                   onChange={(e) => setQuatationTime(e.target.value)}
+                  required
                 />
 
                 <label>Quotation Reference No</label>
@@ -942,6 +945,7 @@ function SalesLeadManegment() {
                   className={styles.quatationInput}
                   value={QuatationReffrencsNo}
                   onChange={(e) => setQuatationReffrencsNo(e.target.value)}
+                  required
                 />
                 <label>Referred to Perches Executive</label>
                 <select
@@ -952,6 +956,7 @@ function SalesLeadManegment() {
                       [...e.target.selectedOptions].map((opt) => opt.value)
                     )
                   }
+                  required
                 >
                   <option value="" disabled>
                     Select Employe

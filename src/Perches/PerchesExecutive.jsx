@@ -132,14 +132,14 @@ function PerchesExecutive() {
       // quotationMasterId: quatationId,
       // masterId: masterId,
       quotationMasterId: QuatationMasterId,
-      originalPackageCost,
-      originalTrsCost,
-      originalCarServiceCost,
-      originalAdditionalCost,
-      finalPackageCost,
-      finalTrsCost,
-      finalCarServiceCost,
-      finalAdditionalCost,
+      originalPackageCost: originalPackageCost.replace(/,/g, ""),
+      originalTrsCost: originalTrsCost.replace(/,/g, ""),
+      originalCarServiceCost: originalCarServiceCost.replace(/,/g, ""),
+      originalAdditionalCost: originalAdditionalCost.replace(/,/g, ""),
+      finalPackageCost: finalPackageCost.replace(/,/g, ""),
+      finalTrsCost: finalTrsCost.replace(/,/g, ""),
+      finalCarServiceCost: finalCarServiceCost.replace(/,/g, ""),
+      finalAdditionalCost: finalAdditionalCost.replace(/,/g, ""),
     };
     console.log(formData);
     try {
@@ -676,64 +676,60 @@ function PerchesExecutive() {
             >
               <h4>Original Costs</h4>
               <input
-                type="number"
+                type="text"
                 value={originalPackageCost}
-                onChange={(e) => setOriginalPackageCost(Number(e.target.value))}
+                onChange={(e) => setOriginalPackageCost(e.target.value)}
                 placeholder="Original Package Cost"
                 className="responseformmaster-input"
               />
               <input
-                type="number"
+                type="text"
                 value={originalTrsCost}
-                onChange={(e) => setOriginalTrsCost(Number(e.target.value))}
+                onChange={(e) => setOriginalTrsCost(e.target.value)}
                 placeholder="Original TRS Cost"
                 className="responseformmaster-input"
               />
               <input
-                type="number"
+                type="text"
                 value={originalCarServiceCost}
-                onChange={(e) =>
-                  setOriginalCarServiceCost(Number(e.target.value))
-                }
+                onChange={(e) => setOriginalCarServiceCost(e.target.value)}
                 placeholder="Original Car Service Cost"
                 className="responseformmaster-input"
               />
               <input
-                type="number"
+                type="text"
                 value={originalAdditionalCost}
-                onChange={(e) =>
-                  setOriginalAdditionalCost(Number(e.target.value))
-                }
+                onChange={(e) => setOriginalAdditionalCost(e.target.value)}
                 placeholder="Original Additional Cost"
                 className="responseformmaster-input"
               />
 
               <h4>Final Costs</h4>
               <input
-                type="number"
+                type="text"
                 value={finalPackageCost}
-                onChange={(e) => setFinalPackageCost(Number(e.target.value))}
+                onChange={(e) => setFinalPackageCost(e.target.value)}
                 placeholder="Final Package Cost"
                 className="responseformmaster-input"
               />
               <input
-                type="number"
+                type="text"
                 value={finalTrsCost}
-                onChange={(e) => setFinalTrsCost(Number(e.target.value))}
+                onChange={(e) => setFinalTrsCost(e.target.value)}
                 placeholder="Final TRS Cost"
                 className="responseformmaster-input"
               />
               <input
-                type="number"
+                type="text"
                 value={finalCarServiceCost}
-                onChange={(e) => setFinalCarServiceCost(Number(e.target.value))}
+                onChange={(e) => setFinalCarServiceCost(e.target.value)}
                 placeholder="Final Car Service Cost"
                 className="responseformmaster-input"
               />
               <input
-                type="number"
+                type="text"
                 value={finalAdditionalCost}
-                onChange={(e) => setFinalAdditionalCost(Number(e.target.value))}
+                onChange={(e) => setFinalAdditionalCost(e.target.value)}
                 placeholder="Final Additional Cost"
                 className="responseformmaster-input"
               />

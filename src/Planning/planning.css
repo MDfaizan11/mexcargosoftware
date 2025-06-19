@@ -1,13 +1,9 @@
-/* planning.css */
-
-/* General container styling */
 .planningCard-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Heading styling */
 .planningCard-container h2 {
   font-size: 28px;
   font-weight: bold;
@@ -16,14 +12,12 @@
   text-align: center;
 }
 
-/* Cards wrapper for grid layout */
 .planningCard-cardsWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
-/* Individual card styling */
 .planningCard-card {
   background-color: #fff;
   border-radius: 8px;
@@ -36,7 +30,6 @@
   transform: translateY(-5px);
 }
 
-/* Source-specific card styling */
 .planningCard-air {
   border-left: 4px solid #3498db;
 }
@@ -49,7 +42,6 @@
   border-left: 4px solid #f1c40f;
 }
 
-/* Card heading */
 .planningCard-card h3 {
   font-size: 20px;
   font-weight: 600;
@@ -57,7 +49,6 @@
   margin-bottom: 15px;
 }
 
-/* Paragraph styling within cards */
 .planningCard-card p {
   font-size: 14px;
   color: #555;
@@ -66,14 +57,12 @@
   flex-wrap: wrap;
 }
 
-/* Strong tag styling for labels */
 .planningCard-card p strong {
   font-weight: 600;
   color: #333;
   width: 150px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .planningCard-container {
     padding: 15px;
@@ -223,6 +212,11 @@
 
 .project-executive-submit-button:hover {
   background: linear-gradient(135deg, #5a54d6, #4c43b8);
+}
+.planning_multi_button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 /* Responsive Adjustments */

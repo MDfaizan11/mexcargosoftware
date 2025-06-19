@@ -1,18 +1,15 @@
-/* Basic reset for the container */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Container for the pricing cards */
 .pricingcarddatatosales-container {
   display: grid;
   gap: 20px;
   padding: 20px;
 }
 
-/* Styling for each card */
 .pricingcarddatatosales {
   background-color: #fff;
   border-radius: 8px;
@@ -22,10 +19,9 @@
   gap: 15px;
 }
 
-/* Grid layout for the details inside the card */
 .pricingcarddatatosales .pricing-card-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Default for mobile */
+  grid-template-columns: 1fr;
   gap: 10px;
 }
 
@@ -321,4 +317,29 @@
   .viewPriceAddedBySales-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.finalSlip_DownLoad_button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #0056b3;
+  color: white;
+  margin-left: 2px;
+}
+.finalslipClose_button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: red;
+  color: white;
+  margin-left: 2px;
 }
