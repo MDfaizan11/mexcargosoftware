@@ -3,6 +3,7 @@ import styles from "../styles/Leadmanegment.module.css";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
 import axiosInstance from "../utils/axiosInstance";
+
 function SalesLeadManegment() {
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("mexcargoUserData"))?.token;
@@ -44,6 +45,7 @@ function SalesLeadManegment() {
   const [accountExecutiveList, setAccountExecutiveList] = useState([]);
   const [selectedAccountExecutive, setSelectedAccountExecutive] =
     useState(null);
+
   useEffect(() => {
     async function getAllLeads() {
       try {
@@ -57,7 +59,6 @@ function SalesLeadManegment() {
           }
         );
         const data = await response.json();
-        console.log(data);
         setLeads(data.content || []);
         setTotalPages(data.page.totalPages || 1);
       } catch (error) {
@@ -78,7 +79,6 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log("Company details:", response.data);
       setCompanyDetail(response.data);
       setShowCompanyPopup(true);
     } catch (error) {
@@ -97,7 +97,6 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log("Employee details:", response.data);
       setEmployeeDetail(response.data);
       setShowEmployeePopup(true);
     } catch (error) {
@@ -116,13 +115,13 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log("Lead need details:", response.data);
       setLeadNeedDetail(response.data);
       setShowLeadNeedPopup(true);
     } catch (error) {
       console.error(error);
     }
   }
+
   async function fetchLeadNote(id) {
     try {
       const response = await axiosInstance.get(
@@ -134,7 +133,6 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log(response.data);
       setLeadNote(response.data || "No note available");
       setShowNotePopup(true);
     } catch (error) {
@@ -157,8 +155,6 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log("Lead deleted successfully.");
-      console.log(response.data);
       if (response.status === 200) {
         alert("Lead deleted successfully");
         setLeads(leads.filter((l) => l.leadId !== id));
@@ -186,7 +182,6 @@ function SalesLeadManegment() {
             },
           }
         );
-        console.log(response.data);
         setpurchesEmpList(response.data);
       } catch (error) {
         console.log(error);
@@ -249,7 +244,6 @@ function SalesLeadManegment() {
 
   async function handleAddnewFollowUp(e) {
     e.preventDefault();
-
     const formData = {
       followUpDate: newfollowUpdate,
       followUpRemark: newfollowRemark,
@@ -266,7 +260,6 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log(response.data);
       if (response.status === 200) {
         alert("Follow-up added successfully");
         setShowNextFollowUpPopup(false);
@@ -280,15 +273,9 @@ function SalesLeadManegment() {
     }
   }
 
-  const handleSearchLead = leads.filter((lead, index) => {
-    return lead.leadReferenceNo
-      .toLowerCase()
-      .includes(searchLeadRefNo.toLowerCase());
-  });
-
-  // function handleShowFullDetail(id) {
-  //   navigate(`/leadfulldatashow/${id}`);
-  // }
+  const handleSearchLead = leads.filter((lead) =>
+    lead.leadReferenceNo.toLowerCase().includes(searchLeadRefNo.toLowerCase())
+  );
 
   function handleAddOtherTash(id) {
     navigate(`/other_task/${id}`);
@@ -306,7 +293,6 @@ function SalesLeadManegment() {
             },
           }
         );
-        console.log(response.data);
         setPlanningExecutiveList(response.data);
       } catch (error) {
         console.log(error);
@@ -314,6 +300,7 @@ function SalesLeadManegment() {
     }
     getAllPlanningExecutiveList();
   }, []);
+
   function handleShowPlanningExecutive(id) {
     setPlanningExecutivepopup(true);
     setPlanningId(id);
@@ -339,7 +326,6 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log(response.data);
       if (response.status === 200) {
         alert("Data sent to planning executive successfully");
         setPlanningExecutivepopup(false);
@@ -363,7 +349,6 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log(response.data);
       setAccountExecutiveList(response.data);
     } catch (error) {
       console.log(error);
@@ -376,7 +361,6 @@ function SalesLeadManegment() {
       leadId: accountLeadId,
       accountExecutiveId: selectedAccountExecutive,
     };
-    console.log(body);
     try {
       const response = await axiosInstance.post(
         `${BASE_URL}/lead/particular-ammount/send/account-executives`,
@@ -388,7 +372,6 @@ function SalesLeadManegment() {
           },
         }
       );
-      console.log(response.data);
       if (response.status === 200) {
         alert("Data sent to account executive successfully");
         setAccountExecutivepopup(false);
@@ -398,11 +381,10 @@ function SalesLeadManegment() {
       console.log(error);
     }
   }
+
   return (
     <>
-      <h2
-        style={{ textAlign: "center", marginTop: "30px", marginBottom: "30px" }}
-      >
+      <h2 style={{ textAlign: "center", marginBottom: "30px" }}>
         Sales Lead Management
       </h2>
 
@@ -417,33 +399,29 @@ function SalesLeadManegment() {
           }}
         />
         <div className={styles.Lead_multiple_button}>
-          <button onClick={() => navigate("/add_lead")}> Add Lead</button>
-          {/* <button onClick={handleShowFullDetail}> Follow Up Leads</button> */}
+          <button onClick={() => navigate("/add_lead")}>Add Lead</button>
         </div>
       </div>
 
       <div className={styles.lead_management_table_wrapper}>
-        <table className={styles.lead_management_table}>
-          <thead>
-            <tr>
-              <th>Lead Ref No</th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>RFQ Sent To End User</th>
-              <th>Company Details</th>
-              <th>Employee Details</th>
-              <th>Need</th>
-              <th>Note</th>
-              <th>RFQ</th>
-              <th>Quotation Status</th>
-              <th>Actions</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-        </table>
-
-        <div className={styles.scrollable_tbody_wrapper}>
+        <div className={styles.lead_table_scrrol}>
           <table className={styles.lead_management_table}>
+            <thead>
+              <tr>
+                <th>Lead Ref No</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>RFQ Sent To End User</th>
+                <th>Company Details</th>
+                <th>Employee Details</th>
+                <th>Need</th>
+                <th>Note</th>
+                <th>RFQ</th>
+                <th>Quotation Status</th>
+                <th>Actions</th>
+                <th>Action</th>
+              </tr>
+            </thead>
             <tbody>
               {handleSearchLead.length > 0 ? (
                 handleSearchLead.map((lead) => (
@@ -573,7 +551,6 @@ function SalesLeadManegment() {
         >
           ⬅ Prev
         </button>
-
         {[...Array(totalPages)].map((_, index) => (
           <button
             key={index}
@@ -583,7 +560,6 @@ function SalesLeadManegment() {
             {index + 1}
           </button>
         ))}
-
         <button
           disabled={page + 1 >= totalPages}
           onClick={() => setPage((prev) => prev + 1)}
@@ -644,7 +620,7 @@ function SalesLeadManegment() {
               <strong>Contact No:</strong> {employeeDetail.contactNo || "N/A"}
             </p>
             <p>
-              <strong>landLine No:</strong> {employeeDetail.landLineNo || "N/A"}
+              <strong>LandLine No:</strong> {employeeDetail.landLineNo || "N/A"}
             </p>
             <button
               className={styles.closeButton}
@@ -660,7 +636,6 @@ function SalesLeadManegment() {
         <div className={styles.popupOverlay}>
           <div className={styles.popupContent}>
             <h3>Lead Need Details</h3>
-
             <p>
               <strong>Source:</strong> {leadNeedDetail.source || "N/A"}
             </p>
@@ -689,7 +664,6 @@ function SalesLeadManegment() {
               <strong>Size of Transportation:</strong>{" "}
               {leadNeedDetail.sizeOfTransporatation || "N/A"}
             </p>
-
             <p>
               <strong>Good Transport:</strong>{" "}
               {leadNeedDetail.goodTransport || "N/A"}
@@ -712,7 +686,6 @@ function SalesLeadManegment() {
                   )
                 : "N/A"}
             </p>
-
             <p>
               <strong>Car Moving Time:</strong>
               {leadNeedDetail.carMovingTime
@@ -730,15 +703,10 @@ function SalesLeadManegment() {
               <strong>Vehicle Value:</strong>{" "}
               {leadNeedDetail.vehicleValue || "N/A"}
             </p>
-
             <p>
               <strong>Insurance Facility:</strong>{" "}
               {leadNeedDetail.insuranceFacilityOfGoods || "N/A"}
             </p>
-            {/* <p>
-              <strong>Other Goods Insurance:</strong>{" "}
-              {leadNeedDetail.commudityAndOtherGoodsInsuranceFacility || "N/A"}
-            </p> */}
             <p>
               <strong>When We Get Goods:</strong>{" "}
               {leadNeedDetail.whenWeGetGoods || "N/A"}
@@ -751,7 +719,6 @@ function SalesLeadManegment() {
               <strong>Anything Else:</strong>{" "}
               {leadNeedDetail.anyThingsElseRatherThanGood || "N/A"}
             </p>
-
             <p>
               <strong>Other Services:</strong>{" "}
               {leadNeedDetail.otherServices || "N/A"}
@@ -760,7 +727,6 @@ function SalesLeadManegment() {
               <strong>Risk Coverage (Goods):</strong>{" "}
               {leadNeedDetail.riskCoverageGood || "N/A"}
             </p>
-
             <p>
               <strong>Moving Date & Time:</strong>{" "}
               {leadNeedDetail.movingDateAndTime
@@ -778,7 +744,6 @@ function SalesLeadManegment() {
                   )
                 : "N/A"}
             </p>
-
             <p>
               <strong>Receiving Date & Time:</strong>{" "}
               {leadNeedDetail.receivingDateAndTime
@@ -796,8 +761,6 @@ function SalesLeadManegment() {
                   )
                 : "N/A"}
             </p>
-
-            {/* Additional Needs */}
             {leadNeedDetail.additionalNeed &&
               leadNeedDetail.additionalNeed.length > 0 && (
                 <>
@@ -821,7 +784,6 @@ function SalesLeadManegment() {
                   </ul>
                 </>
               )}
-
             <button
               className={styles.closeButton}
               onClick={() => setShowLeadNeedPopup(false)}
@@ -836,7 +798,6 @@ function SalesLeadManegment() {
         <div className={styles.popupOverlay}>
           <div className={styles.popupContent}>
             <h3>Lead Note</h3>
-
             <p>
               <strong>Remark:</strong> {leadNote.remark || "N/A"}
             </p>
@@ -850,18 +811,14 @@ function SalesLeadManegment() {
             <p>
               <strong>Rating:</strong> {leadNote.rating || "N/A"}
             </p>
-
-            {/* Follow-up Details */}
             {leadNote.followUps && leadNote.followUps.length > 0 && (
               <>
                 <h4 className={styles.followup_heading}>Follow-ups</h4>
-
                 {leadNote.followUpStatus && (
                   <p className={styles.followup_status}>
                     <strong>Status:</strong> {leadNote.followUpStatus}
                   </p>
                 )}
-
                 <div className={styles.followup_table_container}>
                   <table className={styles.followup_table}>
                     <thead>
@@ -893,7 +850,6 @@ function SalesLeadManegment() {
                 </div>
               </>
             )}
-
             <button
               className={styles.closeButton}
               onClick={() => setShowNotePopup(false)}
@@ -905,80 +861,74 @@ function SalesLeadManegment() {
       )}
 
       {showQuatationForm && (
-        <>
-          <div className={styles.quatationOverlay}>
-            <div className={styles.quatationPopup}>
-              <button
-                className={styles.quatationCloseButton}
-                onClick={() => setShowQuatationForm(false)}
+        <div className={styles.quatationOverlay}>
+          <div className={styles.quatationPopup}>
+            <button
+              className={styles.quatationCloseButton}
+              onClick={() => setShowQuatationForm(false)}
+            >
+              ✖
+            </button>
+            <p className={styles.quatationPopupTitle}>Quotation Form</p>
+            <form
+              className={styles.quatationForm}
+              onSubmit={handleSubmitQuatation}
+            >
+              <label>Quotation Required Date</label>
+              <input
+                type="date"
+                className={styles.quatationInput}
+                value={Quatationdate}
+                onChange={(e) => setQuatationdate(e.target.value)}
+                required
+              />
+              <label>Quotation Required Time</label>
+              <input
+                type="time"
+                className={styles.quatationInput}
+                value={QuatationTime}
+                onChange={(e) => setQuatationTime(e.target.value)}
+                required
+              />
+              <label>Quotation Reference No</label>
+              <input
+                type="text"
+                placeholder="Quotation Reference No"
+                className={styles.quatationInput}
+                value={QuatationReffrencsNo}
+                onChange={(e) => setQuatationReffrencsNo(e.target.value)}
+                required
+              />
+              <label>Referred to Purchase Executive</label>
+              <select
+                multiple
+                value={QuatationEmployeeId}
+                onChange={(e) =>
+                  setQuatationEmployeeId(
+                    [...e.target.selectedOptions].map((opt) => opt.value)
+                  )
+                }
+                required
               >
-                ✖
+                <option value="" disabled>
+                  Select Employee
+                </option>
+                {purchesEmpList.length > 0 ? (
+                  purchesEmpList.map((emp) => (
+                    <option key={emp.userId} value={emp.userId}>
+                      {emp.userName}
+                    </option>
+                  ))
+                ) : (
+                  <option disabled>No Employee available</option>
+                )}
+              </select>
+              <button type="submit" className={styles.quatationSubmitButton}>
+                Submit
               </button>
-              <p className={styles.quatationPopupTitle}>Quotation Form</p>
-
-              <form
-                className={styles.quatationForm}
-                onSubmit={handleSubmitQuatation}
-              >
-                <label>Quotation Required Date</label>
-                <input
-                  type="date"
-                  className={styles.quatationInput}
-                  value={Quatationdate}
-                  onChange={(e) => setQuatationdate(e.target.value)}
-                  required
-                />
-
-                <label>Quotation Required Time</label>
-                <input
-                  type="time"
-                  className={styles.quatationInput}
-                  value={QuatationTime}
-                  onChange={(e) => setQuatationTime(e.target.value)}
-                  required
-                />
-
-                <label>Quotation Reference No</label>
-                <input
-                  type="text"
-                  placeholder="Quotation Reference No"
-                  className={styles.quatationInput}
-                  value={QuatationReffrencsNo}
-                  onChange={(e) => setQuatationReffrencsNo(e.target.value)}
-                  required
-                />
-                <label>Referred to Perches Executive</label>
-                <select
-                  multiple
-                  value={QuatationEmployeeId}
-                  onChange={(e) =>
-                    setQuatationEmployeeId(
-                      [...e.target.selectedOptions].map((opt) => opt.value)
-                    )
-                  }
-                  required
-                >
-                  <option value="" disabled>
-                    Select Employe
-                  </option>
-                  {purchesEmpList.length > 0
-                    ? purchesEmpList.map((emp, ind) => {
-                        return (
-                          <>
-                            <option value={emp.userId}> {emp.userName}</option>
-                          </>
-                        );
-                      })
-                    : "no Employe available"}
-                </select>
-
-                <button type="submit" className={styles.quatationSubmitButton}>
-                  Submit
-                </button>
-              </form>
-            </div>
+            </form>
           </div>
-        </>
+        </div>
       )}
 
       {showNextFollowUpPopup && (
@@ -994,7 +944,6 @@ function SalesLeadManegment() {
               </button>
             </div>
             <h3 className={styles.nextfollwuppopupTitle}>Next Follow Up</h3>
-
             <form
               className={styles.nextFollowupForm}
               onSubmit={handleAddnewFollowUp}
@@ -1008,7 +957,6 @@ function SalesLeadManegment() {
                   required
                 />
               </label>
-
               <label>
                 Next Follow Up Remark:
                 <input
@@ -1019,7 +967,6 @@ function SalesLeadManegment() {
                   required
                 />
               </label>
-
               <label>
                 Select Status:
                 <select
@@ -1032,13 +979,12 @@ function SalesLeadManegment() {
                   <option value="COMPLETED">COMPLETED</option>
                 </select>
               </label>
-
               <div className={styles.nextfollwupbuttonGroup}>
                 <button
                   type="submit"
                   className={styles.nextfollwupsubmitButton}
                 >
-                  submit
+                  Submit
                 </button>
               </div>
             </form>
@@ -1092,6 +1038,7 @@ function SalesLeadManegment() {
           </div>
         </div>
       )}
+
       {accountExecutivepopup && (
         <div className={styles.planningexecutive_name_container_overlay}>
           <div className={styles.planningexecutive_name_container_popup}>
@@ -1107,16 +1054,7 @@ function SalesLeadManegment() {
             <form onSubmit={handleDataSendToaccountExecutive}>
               <select
                 className={styles.planningexecutive_name_container_select}
-                // multiple
                 value={selectedAccountExecutive}
-                // onChange={(e) =>
-                //   setSelectedAccountExecutive(
-                //     Array.from(
-                //       e.target.selectedOptions,
-                //       (option) => option.value
-                //     )
-                //   )
-                // }
                 onChange={(e) => setSelectedAccountExecutive(e.target.value)}
               >
                 <option value="">Select Account Executive</option>

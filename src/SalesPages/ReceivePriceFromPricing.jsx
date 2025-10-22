@@ -33,6 +33,10 @@ function ReceivePriceFromPricing() {
   const [refreshkey, setRefreshKey] = useState(0);
   const [newUpdateId, setNewUpdateId] = useState(null);
   const [showSlip, setShowSlip] = useState(false);
+  const [makeSlipQuatationId, setMakeSlipQuatationId] = useState(null);
+  const [makeSlipQuatationIdForSlip, setMakeSlipQuatationIdForSlip] =
+    useState(false);
+
   useEffect(() => {
     async function priceReceiveFromPricing() {
       try {
@@ -254,6 +258,12 @@ function ReceivePriceFromPricing() {
   function showCustomerSlip() {
     setShowSlip(true);
   }
+
+  function ShowSlipFrom(id) {
+    setMakeSlipQuatationId(id);
+    setMakeSlipQuatationIdForSlip(true);
+  }
+
   return (
     <>
       <div className="pricingcarddatatosales-container">
@@ -361,9 +371,15 @@ function ReceivePriceFromPricing() {
               </button>
               <button
                 className="view-detail-btn"
-                onClick={() => showCustomerSlip()}
+                onClick={() => ShowSlipFrom(item.quatationId)}
               >
                 {" "}
+                Make Slip
+              </button>
+              <button
+                className="view-detail-btn"
+                onClick={() => showCustomerSlip()}
+              >
                 View Slip
               </button>
             </div>
@@ -743,6 +759,23 @@ function ReceivePriceFromPricing() {
             </footer>
           </div>
         </>
+      )}
+
+      {makeSlipQuatationIdForSlip && (
+        <div className="makeSlipQuatationIdForSlip-overlay">
+          <div className="makeSlipQuatationIdForSlip-card">
+            <button
+              className="makeSlipQuatationIdForSlip-close"
+              onClick={() => setMakeSlipQuatationIdForSlip(false)}
+            >
+              ✖
+            </button>
+            <h2 className="makeSlipQuatationIdForSlip-title">Slip Quatation</h2>
+            <label htmlFor="">Date :</label>
+            <input type="date" />
+            
+          </div>
+        </div>
       )}
     </>
   );
