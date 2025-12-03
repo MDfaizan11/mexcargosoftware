@@ -853,6 +853,15 @@ function AddLead() {
     endUserMailId: "",
     source: "",
     destination: "",
+    originFloorNo: "",
+destinationFloorNo: "",
+originDetailsAddress: "",
+destinationDetailsAddress: "",
+isLiftAvailableInOrigin: "",
+isLiftAvailableInDestination: "",
+specialService: "",
+secondaryVehicle: "",
+
     // movingDateAndTime stored as "YYYY-MM-DDTHH:MM" string OR empty string
     movingDateAndTime: new Date().toISOString().slice(0, 16),
     receivingDateTime: "",
@@ -972,6 +981,19 @@ function AddLead() {
 
   source: formData.source || null,
   destination: formData.destination || null,
+originFloorNo: formData.originFloorNo || null,
+destinationFloorNo: formData.destinationFloorNo || null,
+originDetailsAddress: formData.originDetailsAddress || null,
+destinationDetailsAddress: formData.destinationDetailsAddress || null,
+
+isLiftAvailableInOrigin:
+  formData.isLiftAvailableInOrigin === "" ? null : formData.isLiftAvailableInOrigin,
+
+isLiftAvailableInDestination:
+  formData.isLiftAvailableInDestination === "" ? null : formData.isLiftAvailableInDestination,
+
+specialService: formData.specialService || null,
+secondaryVehicle: formData.secondaryVehicle || null,
 
   movingDateAndTime: formData.movingDateAndTime || null, // YYYY-MM-DDTHH:MM
   receivingDateTime: formData.receivingDateTime || null, // YYYY-MM-DDTHH:MM
@@ -1051,6 +1073,15 @@ function AddLead() {
     endUserMailId: "",
     source: "",
     destination: "",
+    originFloorNo: "",
+destinationFloorNo: "",
+originDetailsAddress: "",
+destinationDetailsAddress: "",
+isLiftAvailableInOrigin: "",
+isLiftAvailableInDestination: "",
+specialService: "",
+secondaryVehicle: "",
+
     // movingDateAndTime stored as "YYYY-MM-DDTHH:MM" string OR empty string
     movingDateAndTime: new Date().toISOString().slice(0, 16),
     receivingDateTime: "",
@@ -1273,111 +1304,368 @@ function AddLead() {
               </button>
             </TabPanel>
 
-            {/* Need */}
-            <TabPanel className={styles.need_tabpannel}>
-              <h2 className={styles.need_tabHeading}>Need</h2>
 
-              <div className={styles.source}>
-                <input type="search" name="source" placeholder="Origin" value={formData.source} onChange={handleInputChange} />
-                To
-                <input type="search" name="destination" placeholder="Destination" value={formData.destination} onChange={handleInputChange} />
-              </div>
 
-              <label>Moving Date</label>
-              <input
-                type="date"
-                name="movingDate"
-                value={getDatePart(formData.movingDateAndTime) || new Date().toISOString().split("T")[0]}
-                onChange={(e) => setMovingDate(e.target.value)}
-              />
 
-              <label>Moving Time</label>
-              <input
-                type="time"
-                name="movingTime"
-                value={getTimePart(formData.movingDateAndTime) || "00:00"}
-                onChange={(e) => setMovingTime(e.target.value)}
-              />
+    {/* NEED TAB */}
+<TabPanel className={styles.need_tabpannel}>
+  <h2 className={styles.need_tabHeading}>Need Details</h2>
 
-              <label>Expected Receiving Date</label>
-              <input
-                type="date"
-                name="receivingDate"
-                value={getDatePart(formData.receivingDateTime)}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    receivingDateTime: `${e.target.value}T${getTimePart(prev.receivingDateTime) || "00:00"}`,
-                  }))
-                }
-              />
+  {/* ORIGIN / DESTINATION */}
+  <label>Origin</label>
+  <input
+    type="text"
+    name="source"
+    placeholder="Enter Origin Location"
+    value={formData.source}
+    onChange={handleInputChange}
+  />
 
-              <label>Expected Receiving Time</label>
-              <input
-                type="time"
-                name="receivingTime"
-                value={getTimePart(formData.receivingDateTime) || ""}
-                onChange={(e) =>
-                  setFormData((prev) => ({
-                    ...prev,
-                    receivingDateTime: `${getDatePart(prev.receivingDateTime) || ""}T${e.target.value}`,
-                  }))
-                }
-              />
+  <label>Destination</label>
+  <input
+    type="text"
+    name="destination"
+    placeholder="Enter Destination Location"
+    value={formData.destination}
+    onChange={handleInputChange}
+  />
 
-              <input type="text" name="commodity" placeholder="Commodity" value={formData.commodity} onChange={handleInputChange} />
-              <input type="text" name="size" placeholder="Dimension" value={formData.size} onChange={handleInputChange} />
-              <input type="text" name="weight" placeholder="Weight" value={formData.weight} onChange={handleInputChange} />
-              <input type="text" name="secondWeightValue" placeholder="Second Weight Value" value={formData.secondWeightValue} onChange={handleInputChange} />
-              <input type="text" name="overAllWeightValue" placeholder="Overall Weight Value" value={formData.overAllWeightValue} onChange={handleInputChange} />
-              <input type="text" name="typeOfTransportation" placeholder="Type of Transportation" value={formData.typeOfTransportation} onChange={handleInputChange} />
-              <input type="text" name="sizeOfTransportation" placeholder="Size of vehicle" value={formData.sizeOfTransportation} onChange={handleInputChange} />
-              <input type="text" name="preferredRoot" placeholder="Preferred Root" value={formData.preferredRoot} onChange={handleInputChange} />
-              <input type="text" name="commodityValue" placeholder="Value of Commodity" value={formData.commodityValue} onChange={handleInputChange} />
-              <input type="text" name="vehicleValue" placeholder="Car Vehicle Name" value={formData.vehicleValue} onChange={handleInputChange} />
+  {/* FLOOR NUMBERS */}
+  <label>Origin Floor No</label>
+  <input
+    type="text"
+    name="originFloorNo"
+    placeholder="Enter Floor No (Origin)"
+    value={formData.originFloorNo}
+    onChange={handleInputChange}
+  />
 
-              <label>Car Moving Date:</label>
-              <input type="date" name="carMovingDate" value={formData.carMovingDate} onChange={handleInputChange} />
-              <label>Car Moving Time:</label>
-              <input type="time" name="carMovingTime" value={formData.carMovingTime} onChange={handleInputChange} />
-                 
-                  <label>Car Expected Receiveing Date:</label>
-              <input type="date" name="carReceivingDate" value={formData.carReceivingDate} onChange={handleInputChange} />
-              <label>Car Expected Receiveing Time:</label>
-              <input type="time" name="carReceivingTime" value={formData.carReceivingTime} onChange={handleInputChange} />
+  <label>Destination Floor No</label>
+  <input
+    type="text"
+    name="destinationFloorNo"
+    placeholder="Enter Floor No (Destination)"
+    value={formData.destinationFloorNo}
+    onChange={handleInputChange}
+  />
 
-              <input type="text" name="goodsTransport" placeholder="Mode of transport" value={formData.goodsTransport} onChange={handleInputChange} />
-              <input type="text" name="carTransport" placeholder="Car" value={formData.carTransport} onChange={handleInputChange} />
+  {/* FULL ADDRESSES */}
+  <label>Origin Full Address</label>
+  <textarea
+    name="originDetailsAddress"
+    placeholder="Enter Complete Origin Address"
+    value={formData.originDetailsAddress}
+    onChange={handleInputChange}
+  />
 
-              <select name="otherServices" onChange={handleInputChange} value={formData.otherServices}>
-                <option value="">Other Services</option>
-                <option value="AIR_CONDITION">Air Condition</option>
-                <option value="TV_INSTALLATION">TV Installation</option>
-                <option value="DISH_ANTENNA">Dish Antenna</option>
-                <option value="WATER_GEYSER">Water Geyser</option>
-                <option value="HYDRAULIC_BAG">Hydraulic Bag</option>
-                <option value="FURNITURE_MADE_OF_ENGINEERED_WOOD">Furniture Made of Engineered Wood</option>
-              </select>
+  <label>Destination Full Address</label>
+  <textarea
+    name="destinationDetailsAddress"
+    placeholder="Enter Complete Destination Address"
+    value={formData.destinationDetailsAddress}
+    onChange={handleInputChange}
+  />
 
-              <select name="riskCoverageGood" value={formData.riskCoverageGood} onChange={handleInputChange}>
-                <option value="">Risk Coverage Of Goods</option>
-                <option value="OWNER_RISK">Owner risk</option>
-                <option value="CAREER_RISK">Career risk</option>
-              </select>
+  {/* LIFT AVAILABILITY */}
+  <label>Lift Available at Origin?</label>
+  <select
+    name="isLiftAvailableInOrigin"
+    value={formData.isLiftAvailableInOrigin}
+    onChange={handleInputChange}
+  >
+    <option value="">SELECT</option>
+    <option value={true}>YES</option>
+    <option value={false}>NO</option>
+  </select>
 
-              <h3>Extra Fields</h3>
-              {formData.additionalNeedRequests.map((field, index) => (
-                <div key={index} className={styles.additionalField}>
-                  <input type="text" placeholder="Article Name" value={field.needName} onChange={(e) => handleFieldChange(index, "needName", e.target.value)} />
-                  <input type="text" placeholder="Article Value" value={field.needValue} onChange={(e) => handleFieldChange(index, "needValue", e.target.value)} />
-                  <input type="text" placeholder="Article Dimension" value={field.articleDimension} onChange={(e) => handleFieldChange(index, "articleDimension", e.target.value)} />
-                  <input type="text" placeholder="Article Weight" value={field.articleWeight} onChange={(e) => handleFieldChange(index, "articleWeight", e.target.value)} />
-                </div>
-              ))}
+  <label>Lift Available at Destination?</label>
+  <select
+    name="isLiftAvailableInDestination"
+    value={formData.isLiftAvailableInDestination}
+    onChange={handleInputChange}
+  >
+    <option value="">SELECT</option>
+    <option value={true}>YES</option>
+    <option value={false}>NO</option>
+  </select>
 
-              <button type="button" onClick={handleAddField}>Add Field</button>
-              <button type="button" className={styles.nextButton} onClick={() => setActiveTab(5)}>Next</button>
-            </TabPanel>
+  {/* SPECIAL SERVICE */}
+  <label>Special Service</label>
+  <input
+    type="text"
+    name="specialService"
+    placeholder="Enter Special Services (Optional)"
+    value={formData.specialService}
+    onChange={handleInputChange}
+  />
+
+  {/* SECONDARY VEHICLE */}
+  <label>Secondary Vehicle</label>
+  <input
+    type="text"
+    name="secondaryVehicle"
+    placeholder="Enter Secondary Vehicle Details"
+    value={formData.secondaryVehicle}
+    onChange={handleInputChange}
+  />
+
+  {/* MOVING DATE & TIME */}
+  <label>Moving Date</label>
+  <input
+    type="date"
+    value={getDatePart(formData.movingDateAndTime)}
+    onChange={(e) => setMovingDate(e.target.value)}
+  />
+
+  <label>Moving Time</label>
+  <input
+    type="time"
+    value={getTimePart(formData.movingDateAndTime)}
+    onChange={(e) => setMovingTime(e.target.value)}
+  />
+
+  {/* RECEIVING DATE & TIME */}
+  <label>Receiving Date</label>
+  <input
+    type="date"
+    value={getDatePart(formData.receivingDateTime)}
+    onChange={(e) =>
+      setFormData((prev) => ({
+        ...prev,
+        receivingDateTime: `${e.target.value}T${getTimePart(prev.receivingDateTime) || "00:00"}`
+      }))
+    }
+  />
+
+  <label>Receiving Time</label>
+  <input
+    type="time"
+    value={getTimePart(formData.receivingDateTime)}
+    onChange={(e) =>
+      setFormData((prev) => ({
+        ...prev,
+        receivingDateTime: `${getDatePart(prev.receivingDateTime) || ""}T${e.target.value}`
+      }))
+    }
+  />
+
+  {/* COMMODITY DETAILS */}
+  <label>Commodity</label>
+  <input
+    type="text"
+    name="commodity"
+    placeholder="Enter Commodity (Household, Furniture, Vehicle, etc.)"
+    value={formData.commodity}
+    onChange={handleInputChange}
+  />
+
+  <label>Commodity Size</label>
+  <input
+    type="text"
+    name="size"
+    placeholder="Enter Commodity Size"
+    value={formData.size}
+    onChange={handleInputChange}
+  />
+
+  <label>Weight</label>
+  <input
+    type="text"
+    name="weight"
+    placeholder="Enter Weight"
+    value={formData.weight}
+    onChange={handleInputChange}
+  />
+
+  <label>Second Weight</label>
+  <input
+    type="text"
+    name="secondWeightValue"
+    placeholder="Enter Second Weight"
+    value={formData.secondWeightValue}
+    onChange={handleInputChange}
+  />
+
+  <label>Overall Weight</label>
+  <input
+    type="text"
+    name="overAllWeightValue"
+    placeholder="Enter Overall Weight"
+    value={formData.overAllWeightValue}
+    onChange={handleInputChange}
+  />
+
+  {/* TRANSPORT */}
+  <label>Type of Transportation</label>
+  <input
+    type="text"
+    name="typeOfTransportation"
+    placeholder="Enter Type of Transportation"
+    value={formData.typeOfTransportation}
+    onChange={handleInputChange}
+  />
+
+  <label>Size of Transportation</label>
+  <input
+    type="text"
+    name="sizeOfTransportation"
+    placeholder="Enter Transportation Size"
+    value={formData.sizeOfTransportation}
+    onChange={handleInputChange}
+  />
+
+  <label>Preferred Route</label>
+  <input
+    type="text"
+    name="preferredRoot"
+    placeholder="Enter Preferred Route"
+    value={formData.preferredRoot}
+    onChange={handleInputChange}
+  />
+
+  {/* VALUES */}
+  <label>Commodity Value</label>
+  <input
+    type="text"
+    name="commodityValue"
+    placeholder="Enter Commodity Value"
+    value={formData.commodityValue}
+    onChange={handleInputChange}
+  />
+
+  <label>Vehicle Value</label>
+  <input
+    type="text"
+    name="vehicleValue"
+    placeholder="Enter Vehicle Value"
+    value={formData.vehicleValue}
+    onChange={handleInputChange}
+  />
+
+  {/* GOODS TRANSPORT */}
+   <label>Goods Transport</label>
+  <input
+    type="text"
+    name="goodsTransport"
+    placeholder="Enter Mode of Goods Transport"
+    value={formData.goodsTransport}
+    onChange={handleInputChange}
+  />
+ <label>Car Transport</label>
+  <input
+    type="text"
+    name="carTransport"
+    placeholder="Enter Car Transport Type"
+    value={formData.carTransport}
+    onChange={handleInputChange}
+  />
+
+  <label>Car Moving Date</label>
+  <input
+    type="date"
+    name="carMovingDate"
+    value={formData.carMovingDate}
+    onChange={handleInputChange}
+  />
+
+  <label>Car Moving Time</label>
+  <input
+    type="time"
+    name="carMovingTime"
+    value={formData.carMovingTime}
+    onChange={handleInputChange}
+  />
+
+  <label>Car Receiving Date</label>
+  <input
+    type="date"
+    name="carReceivingDate"
+    value={formData.carReceivingDate}
+    onChange={handleInputChange}
+  />
+
+  <label>Car Receiving Time</label>
+  <input
+    type="time"
+    name="carReceivingTime"
+    value={formData.carReceivingTime}
+    onChange={handleInputChange}
+  />
+
+  {/* OTHERS */}
+  <label>When We Get Goods?</label>
+  <input
+    type="text"
+    name="whenWeGetGoods"
+    placeholder="Enter Expected Receiving Time"
+    value={formData.whenWeGetGoods}
+    onChange={handleInputChange}
+  />
+
+  <label>Anything Else Rather Than Goods?</label>
+  <input
+    type="text"
+    name="anyThingElseRatherThanGood"
+    placeholder="Enter Additional Items"
+    value={formData.anyThingElseRatherThanGood}
+    onChange={handleInputChange}
+  />
+
+  <label>Warehouse Facility Needed?</label>
+  <input
+    type="text"
+    name="anyWarehouseFacilityRatherThanThisThings"
+    placeholder="Enter Warehouse Requirements"
+    value={formData.anyWarehouseFacilityRatherThanThisThings}
+    onChange={handleInputChange}
+  />
+
+  {/* RISK COVERAGE */}
+  <label>Risk Coverage</label>
+  <select
+    name="riskCoverageGood"
+    value={formData.riskCoverageGood}
+    onChange={handleInputChange}
+  >
+    <option value="">SELECT RISK COVERAGE</option>
+    <option value="OWNER_RISK">OWNER RISK</option>
+    <option value="TRANSIT_INSURANCE">TRANSIT INSURANCE</option>
+  </select>
+
+  {/* OTHER SERVICES */}
+  <label>Other Services</label>
+  <select
+    name="otherServices"
+    value={formData.otherServices}
+    onChange={handleInputChange}
+  >
+    <option value="">SELECT OTHER SERVICE</option>
+    <option value="ASSEMBLING">ASSEMBLING</option>
+    <option value="DISASSEMBLING">DISASSEMBLING</option>
+    <option value="INSTALLATION">INSTALLATION</option>
+    <option value="UNINSTALLATION">UNINSTALLATION</option>
+    <option value="PACKING">PACKING</option>
+    <option value="UNPACKING">UNPACKING</option>
+    <option value="LOADING">LOADING</option>
+    <option value="UNLOADING">UNLOADING</option>
+    <option value="CLEANING_SERVICE">CLEANING SERVICE</option>
+    <option value="OTHER">OTHER</option>
+  </select>
+
+  <button
+    type="button"
+    className={styles.nextButton}
+    onClick={() => setActiveTab(5)}
+  >
+    Next
+  </button>
+</TabPanel>
+
+
+
+
+
+
 
             {/* Follow Up */}
             <TabPanel className={styles.note_tabpanel}>

@@ -430,7 +430,7 @@ function SalesLeadManegment() {
           }}
         />
         <div className={styles.Lead_multiple_button}>
-          <button onClick={() => navigate("/add_lead")}>Add Lead</button>
+          <button onClick={() => navigate("/add_lead")}>Add Data</button>
         </div>
       </div>
 
