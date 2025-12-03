@@ -15,10 +15,12 @@ function SalesLeadManegment() {
   const pageSize = 10;
   const [companyDetail, setCompanyDetail] = useState(null);
   const [employeeDetail, setEmployeeDetail] = useState(null);
+  const [endUserDetail, setEndUserDetail] = useState(null);
   const [leadNeedDetail, setLeadNeedDetail] = useState(null);
   const [leadNote, setLeadNote] = useState(null);
   const [showCompanyPopup, setShowCompanyPopup] = useState(false);
   const [showEmployeePopup, setShowEmployeePopup] = useState(false);
+  const [showEndUserPopup, setShowEndUserPopup] = useState(false);
   const [showLeadNeedPopup, setShowLeadNeedPopup] = useState(false);
   const [showNotePopup, setShowNotePopup] = useState(false);
   const [showQuatationForm, setShowQuatationForm] = useState(false);
@@ -99,6 +101,25 @@ function SalesLeadManegment() {
       );
       setEmployeeDetail(response.data);
       setShowEmployeePopup(true);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  async function handleViewendUserDetail(id) {
+    try {
+      const response = await axiosInstance.get(
+        `${BASE_URL}/lead/${id}/end-user-details`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setEndUserDetail(response.data);
+     setShowEndUserPopup(true);
     } catch (error) {
       console.error(error);
     }
@@ -229,13 +250,23 @@ function SalesLeadManegment() {
     return `${day}-${month}-${year}`;
   };
 
-  const formatTime = (timeStr) => {
-    const [hours, minutes] = timeStr.split(":");
-    const hour = parseInt(hours);
-    const suffix = hour >= 12 ? "PM" : "AM";
-    const formattedHour = hour % 12 || 12;
-    return `${formattedHour}:${minutes} ${suffix}`;
-  };
+ const formatTime = (time) => {
+  // Handle null, undefined, empty string, or invalid time
+  if (!time || typeof time !== "string" || !time.includes(":")) {
+    return "N/A";   // You can change it to "" if you prefer no display
+  }
+
+  const [hoursStr, minutes] = time.split(":");
+  const hours = parseInt(hoursStr, 10);
+
+  if (isNaN(hours)) return "N/A";
+
+  const ampm = hours >= 12 ? "PM" : "AM";
+  const formattedHours = hours % 12 || 12;
+
+  return `${formattedHours}:${minutes} ${ampm}`;
+};
+
 
   function handleshowNextFollowUp(id) {
     setLeadId(id);
@@ -414,6 +445,7 @@ function SalesLeadManegment() {
                 <th>RFQ Sent To End User</th>
                 <th>Company Details</th>
                 <th>Employee Details</th>
+                <th>End User Details</th>
                 <th>Need</th>
                 <th>Note</th>
                 <th>RFQ</th>
@@ -450,6 +482,15 @@ function SalesLeadManegment() {
                         View
                       </button>
                     </td>
+                    <td>
+                      <button
+                        className={styles.viewButton}
+                        onClick={() => handleViewendUserDetail(lead.leadId)}
+                      >
+                        View
+                      </button>
+                    </td>
+
                     <td>
                       <button
                         className={styles.viewButton}
@@ -598,6 +639,7 @@ function SalesLeadManegment() {
         </div>
       )}
 
+      
       {showEmployeePopup && employeeDetail && (
         <div className={styles.popupOverlay}>
           <div className={styles.popupContent}>
@@ -631,6 +673,27 @@ function SalesLeadManegment() {
           </div>
         </div>
       )}
+{showEndUserPopup && endUserDetail && (
+  <div className={styles.popupOverlay}>
+    <div className={styles.popupContent}>
+      <h3>End User Details</h3>
+      <p><strong>UserName:</strong> {endUserDetail.userName || "N/A"}</p>
+      <p><strong>Department:</strong> {endUserDetail.department || "N/A"}</p>
+      <p><strong>Designation:</strong> {endUserDetail.designation || "N/A"}</p>
+      <p><strong>Contact No:</strong> {endUserDetail.contactNo || "N/A"}</p>
+      <p><strong>Land Line No:</strong> {endUserDetail.landLineNo || "N/A"}</p>
+      <p><strong>Mail Id:</strong> {endUserDetail.mailId || "N/A"}</p>
+
+      <button
+        className={styles.closeButton}
+        onClick={() => setShowEndUserPopup(false)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
 
       {showLeadNeedPopup && leadNeedDetail && (
         <div className={styles.popupOverlay}>
