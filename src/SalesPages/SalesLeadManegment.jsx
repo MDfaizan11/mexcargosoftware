@@ -447,7 +447,7 @@ function SalesLeadManegment() {
                 <th>Employee Details</th>
                 <th>End User Details</th>
                 <th>Need</th>
-                <th>Note</th>
+                <th>Follow Up</th>
                 <th>RFQ</th>
                 <th>Quotation Status</th>
                 <th>Actions</th>
